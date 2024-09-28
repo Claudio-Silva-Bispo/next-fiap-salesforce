@@ -4,7 +4,7 @@ export default function Hero() {
             <div className="bg-segunda flex relative p-5 md:p-0">
                 
                 <div className="container flex flex-col justify-center text-start md:px-5 lg:px-10 text-gray-50 z-10 min-h-screen md:min-h-[90vh]">
-                    <h1 className="text-3xl md:text-5xl md:leading-none max-w-2xl lg:max-w-4xl text-gray-50 text-start pt-10">Nossa dedicação é proporcionar um ambiente limpo e seguro.</h1>
+                    <h1 className="text-3xl md:text-6xl md:leading-none max-w-2xl lg:max-w-4xl text-gray-50 text-start pt-10">Nossa dedicação é proporcionar um ambiente limpo e seguro.</h1>
                     <p className="mt-10 mb-8 text-lg md:text-xl lg:text-2xl sm:mb-12 max-w-md lg:max-w-xl text-gray-50 text-start leading-relaxed ">Na Alves Cleaning Service, cuidamos de cada detalhe para garantir que sua casa, seu negócio ou qualquer necessidade especial, como mudanças, sejam tratados com a máxima atenção e profissionalismo.</p>
                     
                     <div className="flex flex-wrap justify-center md:justify-start mb-44 md:mb-0">

@@ -6,6 +6,7 @@ import Service from '@/components/Service'
 import Carrosel from '@/components/Carrosel'
 import Testimonials from '@/components/Testimonials'
 import Quote from '@/components/Quote'
+import ContactNetworks from '@/components/ContactNetworks'
 
 export default function Home() {
 
@@ -19,6 +20,7 @@ export default function Home() {
       <Carrosel/>
       <Testimonials/>
       <Quote/>
+      <ContactNetworks/>
     </div>
     
   )
