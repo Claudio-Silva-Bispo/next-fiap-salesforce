@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import logo from '../../public/assets/Navbar/logo-alves-cleaning.png';
+
+import logo from '../../public/assets/Navbar/Logo-novo-dois.png';
 
 export default function Navbar(){
   return (

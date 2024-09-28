@@ -5,8 +5,8 @@ export default function Contact(){
         <section className="py-6 bg-terceira text-gray-900">
             <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x md:pt-20">
                 <div className="py-6 md:py-0 md:px-6 flex flex-col justify-center">
-                    <h1 className="text-4xl md:text-5xl font-bold">Entre em contato</h1>
-                    <p className="pt-5 pb-4 text-lg">Ao preencher esse simples formulário, nosso time entrará em contato com você em até duas horas.</p>
+                    <h1 className="text-5xl md:text-5xl font-bold">Entre em contato</h1>
+                    <p className="pt-5 pb-4 text-xl">Ao preencher esse simples formulário, nosso time entrará em contato com você em até duas horas.</p>
 
                     <div className="space-y-4">
                         <p className="flex items-center">
