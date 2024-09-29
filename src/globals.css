@@ -100,3 +100,13 @@ body {
   width: 100%; /* Ajuste conforme necessário */
 }
 
+.feedback-background {
+  background-image: url('/assets/Mockup/feedback.jpg');
+  background-size: cover; /* Ajuste para 'contain' para manter a proporção */
+  background-repeat: no-repeat; /* Evita que a imagem se repita */
+  background-position: center; /* Centraliza a imagem */
+  height: 90vh; /* Ajuste conforme necessário */
+  width: 100%; /* Ajuste conforme necessário */
+}
+
+

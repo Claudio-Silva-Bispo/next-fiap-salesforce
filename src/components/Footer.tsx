@@ -39,6 +39,8 @@ export default function Footer(){
                 </div>
             </div>
         </div>
+
+        <div className="py-6 text-sm text-center text-gray-600">© 2024 Company Alves Cleaning Service. All rights reserved.</div> 
     </footer>
     );
 }

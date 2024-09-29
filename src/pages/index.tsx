@@ -7,6 +7,7 @@ import Carrosel from '@/components/Carrosel'
 import Testimonials from '@/components/Testimonials'
 import Quote from '@/components/Quote'
 import ContactNetworks from '@/components/ContactNetworks'
+import ReceivedFeedbacks from '@/components/ReceivedFeedbacks'
 
 export default function Home() {
 
@@ -21,6 +22,7 @@ export default function Home() {
       <Testimonials/>
       <Quote/>
       <ContactNetworks/>
+      <ReceivedFeedbacks/>
     </div>
     
   )

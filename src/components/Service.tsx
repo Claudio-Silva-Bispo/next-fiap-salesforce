@@ -48,7 +48,7 @@ export default function Service(){
                     <div rel="noopener noreferrer" className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-gray-50 hidden sm:block rounded-md">
                         <img role="presentation" className="object-cover w-full rounded h-44 bg-gray-500" src="/assets/Service/quarto1.png" />
                         <div className="p-6 space-y-2">
-                            <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline mb-5">Eventos</h3>
+                            <h3 className="text-2xl font-semibold mb-5 uppercase">Eventos</h3>
                             <p>Planejar um evento pode ser desafiador, mas a limpeza não precisa ser uma preocupação. Oferecemos serviços de limpeza antes, durante e após o seu evento, garantindo que tudo esteja perfeito para seus convidados e que o local seja deixado em ordem após a celebração.</p>
                         </div>
                     </div>
@@ -56,7 +56,7 @@ export default function Service(){
                     <div rel="noopener noreferrer" className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-gray-50 hidden sm:block rounded-md">
                         <img role="presentation" className="object-cover w-full rounded h-44 bg-gray-500" src="/assets/Service/fogao.webp" />
                         <div className="p-6 space-y-2">
-                            <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline mb-5">Serviços Personalizados</h3>
+                            <h3 className="text-2xl font-semibold mb-5 uppercase">Serviços Personalizados</h3>
                             <p>Cada casa tem suas particularidades, e nós estamos aqui para atender às suas necessidades específicas. Oferecemos serviços personalizados onde você pode solicitar a limpeza de áreas específicas, como dentro da geladeira, do fogão, dos armários, e outros cantos difíceis de alcançar. Nossa equipe está pronta para deixar cada detalhe impecável, exatamente como você deseja.</p>
                         </div>
                     </div>
@@ -64,7 +64,7 @@ export default function Service(){
                     <div rel="noopener noreferrer" className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-gray-50 hidden sm:block rounded-md">
                         <img role="presentation" className="object-cover w-full rounded h-44 bg-gray-500" src="/assets/Service/quarto2.png" />
                         <div className="p-6 space-y-2">
-                            <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline mb-5">Demais serviços</h3>
+                            <h3 className="text-2xl font-semibold mb-5 uppercase">Demais serviços</h3>
                             <p>Garagens e porões, ou até mesmo dentro do guarda roupa, podem acumular muita sujeira e desorganização ao longo do tempo. Nosso serviço especializado de limpeza para essas áreas garante que cada canto seja limpo e organizado, proporcionando um espaço mais funcional e agradável. Deixe a sujeira e a bagunça conosco, e aproveite um ambiente renovado e bem cuidado.</p>
                         </div>
                     </div>
