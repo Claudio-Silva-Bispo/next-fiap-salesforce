@@ -1,13 +1,12 @@
 import Hero from '../components/Hero'
+import ServiceCarousel from '@/components/ServiceCarousel'
 import About from '@/components/About'
 import Contact from '@/components/Contact'
-import Network from '@/components/Network'
-import Service from '@/components/Service'
-import Carrosel from '@/components/Carrosel'
-import Testimonials from '@/components/Testimonials'
-import Quote from '@/components/Quote'
+import CarroselSimple from '@/components/CarroselSimple'
 import ContactNetworks from '@/components/ContactNetworks'
+import Quote from '@/components/Quote'
 import ReceivedFeedbacks from '@/components/ReceivedFeedbacks'
+import Accordion from '@/components/Accordion'
 
 export default function Home() {
 
@@ -15,14 +14,13 @@ export default function Home() {
     <div> 
       <Hero/>
       <About/>
-      <Network/>
       <Contact/>
-      <Service/>
-      <Carrosel/>
-      <Testimonials/>
-      <Quote/>
+      <ServiceCarousel/>
+      <CarroselSimple/>
       <ContactNetworks/>
+      <Quote/>
       <ReceivedFeedbacks/>
+      <Accordion/>
     </div>
     
   )
