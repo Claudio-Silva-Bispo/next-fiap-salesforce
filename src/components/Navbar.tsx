@@ -135,7 +135,7 @@ export default function Navbar() {
   return (
     <header className={`p-4 fixed top-0 w-full z-50 ${isHeroVisible ? 'bg-transparent text-white hover:text-gray-700' : 'bg-segunda'}`} >
       <div className="container flex justify-between h-10 mx-auto w-full">
-        <div className="flex h-10 w-40">
+        <div className="hidden md:flex md:h-10 md:w-40  ">
           <a href="/"><img src={""} alt="Logo da empresa" /></a>
         </div>
         <div className="hidden lg:flex items-center space-x-3 text-lg">
@@ -206,8 +206,8 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="mt-auto p-5 w-full flex justify-center">
-            <img src={""} alt="Logo da empresa" className="w-44 h-auto" />
+          <div className="mt-auto p-5 w-full m:flex m:justify-center hidden">
+            <img src={""} alt="Logo da empresa" className="w-44 h-auto hidden" />
           </div>
         </div>
       )}

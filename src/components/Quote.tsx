@@ -125,7 +125,7 @@ export default function Quote() {
     netlify-honeypot="bot-field"
     onSubmit={handleSubmit}
     id="FormQuote"
-    className='bg-primeira grid md:flex p-10 justify-center items-center min-h-[640px]'>
+    className='bg-primeira grid md:flex p-5 justify-center items-center min-h-[640px]'>
         
         <input type="hidden" name="form-name" value="form-quote-oliver" />
         <input type="hidden" name="firstName" value={formData.firstName} />
@@ -166,9 +166,9 @@ export default function Quote() {
             
         </div>
 
-        <div className="grid md:flex md:flex-col md:justify-center mt-0 md:p-10 w-[100%] order-1">
+        <div className="grid md:flex md:flex-col md:justify-center mt-0 w-[100%] order-1 m:p-10">
                 
-          <h1 className='text-5xl tracking-tight text-[#FFFF] uppercase mt-20 md:mt-0'>Obtenha seu Orçamento Hoje</h1>
+          <h1 className='text-4xl tracking-tight text-[#FFFF] uppercase mt-10 md:mt-0'>Obtenha seu Orçamento Hoje</h1>
           <p className='mt-5 mb-5 text-xl md:text-2xl text-gray-700 w-[100%]'>Para agendar um serviço de limpeza ou solicitar um orçamento, basta preencher o formulário.</p>
           <p className='mt-5 mb-5 text-xl md:text-2xl text-gray-700 w-[100%]'>Deixe-nos saber os detalhes do serviço que você precisa, seja para limpeza residencial, comercial ou para um evento especial.</p>
           <p className='mt-5 mb-10 text-xl md:text-2xl text-gray-700 w-[100%]'>Estamos aqui para atender suas necessidades e garantir a limpeza e o conforto que você merece.</p>
