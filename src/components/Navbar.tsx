@@ -13,13 +13,13 @@ export default function Navbar() {
   const menuItems = [
     { item: 'Home', path: '/', icon: faHome },
     { item: 'Sobre nós', path: '/AboutCompany', icon: faBuilding },
-    { item: 'Contatos', path: '#contact', icon: faPhone },
+    { item: 'Contatos', path: '/ContactSection', icon: faPhone },
     { item: 'Orçamento', path: '#quote', icon: faCalendarAlt },
-    { item: 'Serviços', path: '#services', icon: faCalendarTimes },
+    { item: 'Serviços', path: '/Services', icon: faCalendarTimes },
     { item: 'Feedback', path: '/Feedback', icon: faComments },
-    { item: 'Testimonials', path: '#testimonials', icon: faThumbsUp },
+    { item: 'Testimonials', path: '/Testimonials', icon: faThumbsUp },
     { item: 'Redes Sociais', path: '#social-media', icon: faShareAlt },
-    { item: 'Time', path: '#team', icon: faUsers },
+    { item: 'Time', path: '/Team', icon: faUsers },
     { item: 'Galeria', path: '/Gallery', icon: faGlobe },
   ];
 
@@ -35,13 +35,13 @@ export default function Navbar() {
       title: 'Serviços',
       icon: faCalendarTimes,
       description: 'Lista de serviços',
-      path: '#services',
+      path: '/Services',
     },
     {
       title: 'Contato',
       icon: faPhone,
       description: 'Get in touch with us',
-      path: '#contact',
+      path: '/ContactSection',
     },
     {
       title: 'Feedback',
@@ -53,7 +53,7 @@ export default function Navbar() {
       title: 'Testimonials',
       icon: faThumbsUp,
       description: 'O que nossos clientes andam falando',
-      path: '#testimonials',
+      path: '/Testimonials',
     },
     {
       title: 'Redes Sociais',
@@ -69,10 +69,10 @@ export default function Navbar() {
     },
     
     {
-      title: 'Newsletter',
+      title: 'Novidades',
       icon: faEnvelope,
-      description: 'Receba novidades e promoções',
-      path: '#newsletter',
+      description: 'Fique por dentro das novidades',
+      path: '/NewsLetter',
     },
     {
       title: 'Galeria',
@@ -183,7 +183,7 @@ export default function Navbar() {
       {/* Menu mobile */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 bg-gray-800 z-40 flex flex-col lg:hidden">
-          <button onClick={toggleMobileMenu} className="self-end text-gray-800">
+          <button onClick={toggleMobileMenu} className="self-end text-gray-800 pt-5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -195,10 +195,10 @@ export default function Navbar() {
             </svg>
           </button>
 
-          <ul className="flex flex-col items-start space-y-4 px-6">
+          <ul className="flex flex-col items-start space-y-4 px-3">
             {menuItems.map((menuItem) => (
               <li key={menuItem.item} className="w-full border-b border-white last:border-none">
-                <a href={menuItem.path} className="text-lg text-white flex items-center space-x-3 py-3">
+                <a href={menuItem.path} className="text-md text-white flex items-center space-x-3 py-3">
                   <FontAwesomeIcon icon={menuItem.icon} />
                   <span>{menuItem.item}</span>
                 </a>

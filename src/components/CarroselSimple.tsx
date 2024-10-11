@@ -7,13 +7,13 @@ export default function CarroselSimple(){
                 className="container flex flex-col mx-auto lg:flex-row min-h-screen p-6"
                 style={{
                     backgroundImage: "url('/assets/Service/imagem2.jpg')",
-                    backgroundPosition: "center center",
+                    backgroundPosition: "center",
                     backgroundSize: "cover",
                     // Define a opacidade com base no breakpoint
                     opacity: "0.6", // Opacidade padrão para mobile
                 }}
                 id="carrosel">
-                <div className="flex flex-col w-full lg:w-1/3 md:p-8 lg:p-12 bg-opacity-80">
+                <div className="flex flex-col w-full lg:w-1/3 md:p-8 lg:p-12 bg-opacity-80 ">
                     <h1 className="text-5xl font-bold leading-none mb-6 pt-10">Serviços realizados</h1>
                     <p className="text-lg mb-6">
                         Descubra a transformação que nossos serviços de limpeza podem proporcionar! Com uma atenção especial aos detalhes, mostramos o impacto positivo que uma limpeza profissional pode ter na sua casa ou empresa. Confira nossos projetos de antes e depois e surpreenda-se com os resultados!

@@ -61,6 +61,7 @@ export default function Gallery() {
         </div>
 
         {/* Seção da galeria de imagens */}
+        {/*
         <div className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4">
           <img src="/assets/Carrosel/imagem-um.jpg" alt="" className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-3 md:row-start-1 bg-gray-500 aspect-square" />
           <img alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/imagem-cinco.jpg" />
@@ -73,6 +74,7 @@ export default function Gallery() {
           <img alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/imagem-dez.jpg" />
           <img src="/assets/Carrosel/imagem-dois.jpg" alt="" className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-1 md:row-start-3 bg-gray-500 aspect-square" />
         </div>
+        */}
 
         {/* Botões de navegação na parte inferior */}
         <div className="flex justify-center mt-6">

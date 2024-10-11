@@ -168,7 +168,7 @@ export default function Quote() {
 
         <div className="grid md:flex md:flex-col md:justify-center mt-0 w-[100%] order-1 m:p-10">
                 
-          <h1 className='text-4xl tracking-tight text-[#FFFF] uppercase mt-10 md:mt-0'>Obtenha seu Orçamento Hoje</h1>
+          <h1 className='text-4xl m:text-6xl tracking-tight text-[#FFFF] uppercase mt-10 md:mt-0'>Obtenha seu Orçamento Hoje</h1>
           <p className='mt-5 mb-5 text-xl md:text-2xl text-gray-700 w-[100%]'>Para agendar um serviço de limpeza ou solicitar um orçamento, basta preencher o formulário.</p>
           <p className='mt-5 mb-5 text-xl md:text-2xl text-gray-700 w-[100%]'>Deixe-nos saber os detalhes do serviço que você precisa, seja para limpeza residencial, comercial ou para um evento especial.</p>
           <p className='mt-5 mb-10 text-xl md:text-2xl text-gray-700 w-[100%]'>Estamos aqui para atender suas necessidades e garantir a limpeza e o conforto que você merece.</p>

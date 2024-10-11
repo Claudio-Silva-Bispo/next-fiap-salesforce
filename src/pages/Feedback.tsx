@@ -50,19 +50,19 @@ export default function Feedback() {
     };
 
     return (
-        <section className="bg-primeira pt-20">
+        <section className="bg-[#DEE8FE] pt-20">
             
             <div className="container flex flex-col lg:flex-row pt-20 md:pt-0">
                 <div className="flex flex-col p-4 md:p-20 space-y-6 rounded-sm lg:w-2/3 xl:w-3/5 text-black">
-                    <h1 className="text-4xl uppercase text-gray-700 font-bold">About our services, how was your experience?</h1>
+                    <h1 className="text-4xl uppercase text-gray-700 font-bold">Sobre nossos serviços, como foi sua experiência?</h1>
 
                     <div className="flex space-x-2 sm:space-x-4">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 w-6 h-6 text-green-400">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
                         </svg>
                         <div className="space-y-2">
-                            <p className="text-lg font-medium leading-snug text-gray-700">Residential Service</p>
-                            <p className="leading-snug text-gray-700">Quick and efficient service for your home.</p>
+                            <p className="text-lg font-medium leading-snug text-gray-700">Serviço Residencial</p>
+                            <p className="leading-snug text-gray-700">Serviço rápido e eficiente para sua casa.</p>
                         </div>
                     </div>
 
@@ -71,8 +71,8 @@ export default function Feedback() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
                         </svg>
                         <div className="space-y-2">
-                            <p className="text-lg font-medium leading-snug text-gray-700">Commercial Service</p>
-                            <p className="leading-snug text-gray-700">Keep your business spotless.</p>
+                            <p className="text-lg font-medium leading-snug text-gray-700">Serviço Comercial</p>
+                            <p className="leading-snug text-gray-700">Mantenha seu negócio impecável.</p>
                         </div>
                     </div>
 
@@ -82,8 +82,8 @@ export default function Feedback() {
                         </svg>
 
                         <div className="space-y-2">
-                            <p className="text-lg font-medium leading-snug text-gray-700">Daily, Weekly, Monthly, Customized</p>
-                            <p className="leading-snug text-gray-700">Customize the service to your liking and according to your schedule.</p>
+                            <p className="text-lg font-medium leading-snug text-gray-700">Diário, Semanal, Mensal, Personalizado</p>
+                            <p className="leading-snug text-gray-700">Personalize o serviço conforme sua preferência e de acordo com sua agenda.</p>
                         </div>
                     </div>
 
@@ -92,15 +92,15 @@ export default function Feedback() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
                         </svg>
                         <div className="space-y-2">
-                            <p className="text-lg font-medium leading-snug text-gray-700">Contact</p>
-                            <p className="leading-snug text-gray-700">Choose the best contact method for you: Phone, SMS, WhatsApp, Email?</p>
+                            <p className="text-lg font-medium leading-snug text-gray-700">Contato</p>
+                            <p className="leading-snug text-gray-700">Escolha o melhor método de contato para você: Telefone, SMS, WhatsApp, E-mail?</p>
                         </div>
                     </div>
                 </div>
 
-                <div className="lg:w-2/3 xl:w-3/5 bg-primeira">
+                <div className="lg:w-2/3 xl:w-3/5 bg-[#DEE8FE]">
                     <div className="flex items-center justify-center p-4 md:p-8 lg:p-12">
-                        <div className="flex flex-col max-w-xl p-6 shadow-sm rounded-xl lg:p-12 bg-segunda text-gray-800">
+                        <div className="flex flex-col max-w-2xl p-6 shadow-sm rounded-xl lg:p-12 bg-white text-gray-800">
                             
                             <form onSubmit={handleSubmit}>
                                 <div className="flex flex-col items-center w-full">
@@ -133,7 +133,7 @@ export default function Feedback() {
                                         <textarea
                                             rows={3}
                                             placeholder="Message..."
-                                            className="p-4 rounded-md resize-none text-gray-800 bg-white"
+                                            className="p-4 rounded-md resize-none text-gray-800 bg-gray-100"
                                             id="message"
                                             value={formData.message}
                                             onChange={handleChange}
@@ -142,7 +142,7 @@ export default function Feedback() {
                                         <input
                                             type="text"
                                             placeholder="Name"
-                                            className="p-4 rounded-md resize-none text-gray-800 mt-3 bg-white"
+                                            className="p-4 rounded-md resize-none text-gray-800 mt-3 bg-gray-100"
                                             id="name"
                                             value={formData.name}
                                             onChange={handleChange}
@@ -151,13 +151,13 @@ export default function Feedback() {
                                         <input
                                             type="email"
                                             placeholder="Email"
-                                            className="p-4 rounded-md resize-none text-gray-800 mt-3 bg-white"
+                                            className="p-4 rounded-md resize-none text-gray-800 mt-3 bg-gray-100"
                                             id="email"
                                             value={formData.email}
                                             onChange={handleChange}
                                         />
                                         
-                                        <button type="submit" className="py-4 my-4  rounded-md text-gray-50" style={{ backgroundColor: '#1C6F42' }}>
+                                        <button type="submit" className="py-4 my-4  rounded-md text-gray-700" style={{ backgroundColor: '#DEE8FE' }}>
                                             Leave your message
                                         </button>
                                     </div>
