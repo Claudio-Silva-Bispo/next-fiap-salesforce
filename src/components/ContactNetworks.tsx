@@ -2,9 +2,9 @@ export default function ContactNetworks() {
   return (
     <section className="bg-segunda" id="social-media">
 
-      <div className="container p-6 mx-auto space-y-6 md:text-center lg:p-8 lg:space-y-8">
+      <div className="container p-3 mx-auto space-y-6 md:text-center lg:p-8 lg:space-y-8">
         
-        <h1 className="text-5xl font-bold text-white pt-16 md:pt-0 leading-normal sm:text-center">Contatos & <span> Redes sociais</span></h1>
+        <h1 className="text-5xl font-bold text-white pt-16 md:pt-0 leading-normal sm:text-center">Contatos & <span> Redes</span></h1>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap md:justify-center lg:justify-between pb-20 md:pb-0">
 
           <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram" className="w-12 h-12 mx-10 my-6 fill-current text-white hover:text-quinta">

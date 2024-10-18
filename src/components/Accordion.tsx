@@ -39,7 +39,7 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
     {...props}
   />
 ))(() => ({
-  backgroundColor: '#ffffff', // Fundo branco
+  backgroundColor: '#ffffff', 
   padding: '16px', // Espaçamento interno
   '& .MuiAccordionSummary-content': {
     marginLeft: '8px',
@@ -53,8 +53,8 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
 }));
 
 const AccordionDetails = styled(MuiAccordionDetails)(() => ({
-  padding: '16px', // Padding igual ao exemplo
-  backgroundColor: '#f9fafb', // Fundo claro
+  padding: '16px',
+  backgroundColor: '#f9fafb',
 }));
 
 export default function CustomizedAccordions() {
@@ -69,7 +69,7 @@ export default function CustomizedAccordions() {
     <section className='min-h-[60vh] flex flex-col justify-center p-5 m:pt-20'>
       
       <div className="before:block before:w-24 before:h-3 before:mb-5 before:rounded-md before:bg-gray-700 pt-20 md:p-0 flex flex-col mb-6">
-        <h3 className="text-5xl text-gray-700 md:mb-0 font-bold">Principais dúvidas</h3>
+        <h2 className="text-5xl text-gray-700 md:mb-0 font-bold">Principais dúvidas</h2>
       </div>
 
       <div className="space-y-4">
@@ -79,7 +79,7 @@ export default function CustomizedAccordions() {
             <Typography className='font-bold text-md sm:text-xl text-gray-700'>Cidades de atendimento</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography className='flex flex-col gap-3 text-gray-700 text-sm m:text-xl'>
+            <Typography className='flex flex-col gap-3 text-gray-600 text-sm m:text-xl'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
               malesuada lacus ex, sit amet blandit leo lobortis eget.
             </Typography>
@@ -92,10 +92,9 @@ export default function CustomizedAccordions() {
             <Typography className='font-bold text-md sm:text-xl text-gray-700'>Como preparar sua casa para um serviço de limpeza profissional Cleaning?</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography className='flex flex-col gap-3 text-gray-700 text-sm m:text-xl'>
-            <p>Contratar um serviço de limpeza profissional é uma excelente maneira de garantir que sua casa permaneça impecável, mesmo nas semanas mais corridas. No entanto, há alguns passos que você pode seguir antes da chegada da equipe de limpeza para maximizar a eficiência e garantir que você aproveite ao máximo a visita. Aqui está um guia sobre como preparar sua casa para um serviço de limpeza profissional.
-            </p>
-
+            <Typography className='flex flex-col gap-3 text-gray-600 text-sm m:text-xl'>
+            Contratar um serviço de limpeza profissional é uma excelente maneira de garantir que sua casa permaneça impecável, mesmo nas semanas mais corridas. No entanto, há alguns passos que você pode seguir antes da chegada da equipe de limpeza para maximizar a eficiência e garantir que você aproveite ao máximo a visita. Aqui está um guia sobre como preparar sua casa para um serviço de limpeza profissional.
+            
             <span className='font-bold'>1. Desapegue das áreas comuns</span>
             A limpeza ao redor da bagunça pode atrasar o processo de limpeza. Reserve alguns minutos para guardar itens como brinquedos, roupas, louças e outros pertences pessoais das bancadas, pisos e mesas. Isso permite que a equipe de limpeza se concentre na limpeza profunda em vez de arrumar a bagunça.
 
@@ -105,7 +104,7 @@ export default function CustomizedAccordions() {
             <span className='font-bold'>3. Comunique instruções especiais </span>
             Cada casa é diferente, então, se houver áreas específicas que você deseja que a equipe de limpeza foque ou evite, informe-os com antecedência. Seja um item frágil que requer manuseio cuidadoso ou um cômodo específico que precisa de atenção extra, a comunicação clara garante que suas necessidades sejam atendidas.
 
-            <a href='/Tips' className='text-red-400'>Saiba mais clicando aqui</a>
+            <a href='/Tips' className='text-quinta'>Saiba mais clicando aqui</a>
 
             </Typography>
           </AccordionDetails>
@@ -118,9 +117,9 @@ export default function CustomizedAccordions() {
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography className='flex flex-col gap-3 text-gray-700 text-sm m:text-xl'>
-            <p>Com o aumento do trabalho remoto, mais residentes de Washington estão montando escritórios em casa para se manterem produtivos e focados. No entanto, trabalhar de casa traz seus próprios desafios, especialmente quando se trata de manter seu espaço de trabalho limpo e organizado. Um escritório em casa arrumado não só aumenta a produtividade, mas também cria um ambiente de trabalho mais agradável. Aqui estão algumas dicas para ajudar você a manter um escritório em casa limpo e organizado.
-            </p>
+            <Typography className='flex flex-col gap-3 text-gray-600 text-sm m:text-xl'>
+            Com o aumento do trabalho remoto, mais residentes de Washington estão montando escritórios em casa para se manterem produtivos e focados. No entanto, trabalhar de casa traz seus próprios desafios, especialmente quando se trata de manter seu espaço de trabalho limpo e organizado. Um escritório em casa arrumado não só aumenta a produtividade, mas também cria um ambiente de trabalho mais agradável. Aqui estão algumas dicas para ajudar você a manter um escritório em casa limpo e organizado.
+            
 
             <span className='font-bold'>1. Desapegue regularmente</span>
             A bagunça pode se acumular rapidamente em um escritório em casa, especialmente se você estiver lidando com várias tarefas. Reserve alguns minutos no final de cada dia para arrumar sua mesa, guardar papéis e remover quaisquer itens que não pertençam ao local. Desapegar regularmente ajuda a manter um espaço de trabalho claro e reduz as distrações.
@@ -131,7 +130,7 @@ export default function CustomizedAccordions() {
             <span className='font-bold'>3. Mantenha sua mesa limpa</span>
             Uma mesa livre de bagunça é essencial para um dia de trabalho produtivo. Limite os itens em sua mesa ao essencial: seu computador, um caderno e alguns suprimentos usados com frequência. Use organizadores de gaveta ou bandejas de mesa para guardar canetas, clipes de papel e outros pequenos itens fora da vista.
 
-            <a href='/Tips' className='font-bold'>Saiba mais clicando aqui</a>
+            <a href='/Tips' className='font-bold text-quinta'>Saiba mais clicando aqui</a>
 
             </Typography>
           </AccordionDetails>
@@ -144,8 +143,16 @@ export default function CustomizedAccordions() {
           </AccordionSummary>
           <AccordionDetails>
             <Typography className='flex flex-col gap-3 text-gray-700 text-sm m:text-xl'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-              malesuada lacus ex, sit amet blandit leo lobortis eget.
+            <span className='font-bold'>1. Ligue</span>
+            Receberemos chamadas a qualquer momento pelo telefone +(206) 9999-999
+            <span className='font-bold'>2. Email</span>
+            Nosso email para contato é teste@gmail.com
+            <span className='font-bold'>3. SMS</span>
+            Enviei SMS através do número +(206) 9999-999
+            <span className='font-bold'>4. WhatsApp</span>
+            Estamos disponíveis também no WhatsApp, pelo número +(206) 9999-999
+            <span className='font-bold'>5. Redes Sociais</span>
+            Não esqueça que estamos nas redes, sendo Instagram e Facebook.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -156,9 +163,9 @@ export default function CustomizedAccordions() {
             <Typography className='font-bold text-md sm:text-xl text-gray-700'>Horário de atendimento</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography className='flex flex-col gap-3 text-gray-700 text-sm m:text-xl'>
-              <p>Nossos serviços podem ser personalizados para diário, semanal, quinzenal, mensal, um única vez, de acordo com a sua necessidade.</p>
-              <p>Estamos atendendo de segunda a sábado, das 08:00 am até as 18:00 pm.</p>
+            <Typography className='flex flex-col gap-3 text-gray-600 text-sm m:text-xl'>
+              Nossos serviços podem ser personalizados para diário, semanal, quinzenal, mensal, um única vez, de acordo com a sua necessidade.
+              <span>Estamos atendendo de segunda a sábado, das 08:00 am até as 18:00 pm.</span>
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -170,12 +177,10 @@ export default function CustomizedAccordions() {
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography className='flex flex-col gap-3 text-gray-700 text-sm m:text-xl'>
-            <h3>Mantenha seu espaço brilhando o ano TODO
-            </h3>
-            <p>Viver em Seattle traz um conjunto único de desafios, especialmente quando se trata de manter sua casa limpa. O clima chuvoso da cidade pode fazer com que manter um espaço arrumado pareça uma tarefa difícil. No entanto, com algumas dicas e truques estratégicos, você pode manter sua casa brilhando o ano todo, faça chuva ou faça sol. Aqui estão nossas 10 principais dicas de limpeza:
-
-            </p>
+            <Typography className='flex flex-col gap-3 text-gray-600 text-sm m:text-xl'>
+            <span>Mantenha seu espaço brilhando o ano TODO
+            </span>
+            Viver em Seattle traz um conjunto único de desafios, especialmente quando se trata de manter sua casa limpa. O clima chuvoso da cidade pode fazer com que manter um espaço arrumado pareça uma tarefa difícil. No entanto, com algumas dicas e truques estratégicos, você pode manter sua casa brilhando o ano todo, faça chuva ou faça sol. Aqui estão nossas 10 principais dicas de limpeza:
 
             <span className='font-bold'>1. Invista em capachos de qualidade</span>
             A temporada de chuvas em Seattle pode resultar em pegadas enlameadas e manchas de água. Coloque capachos de alta qualidade tanto do lado de fora quanto do lado de dentro de cada entrada para capturar a sujeira e a umidade antes que se espalhem pela casa. Lembre-se de limpar os capachos regularmente para garantir que permaneçam eficazes.
@@ -183,7 +188,6 @@ export default function CustomizedAccordions() {
             <span className='font-bold'>2. Mantenha a casa livre de sapatos</span>
             Incentive uma política de não usar sapatos dentro de casa. Esta regra simples ajuda a reduzir a quantidade de sujeira, água da chuva e detritos que entram. Considere fornecer chinelos ou meias confortáveis para os convidados como um toque adicional de hospitalidade.
 
-            
             <span className='font-bold'>3. Combata a umidade com desumidificadores</span>
             O clima úmido de Seattle pode levar ao excesso de umidade em sua casa, causando mofo e bolor. Combata isso usando desumidificadores, especialmente em porões, banheiros e closets. Verifique e limpe seus desumidificadores regularmente para mantê-los funcionando de maneira eficiente.
 
@@ -192,10 +196,7 @@ export default function CustomizedAccordions() {
             </Typography>
           </AccordionDetails>
         </Accordion>
-
-
       </div>
-
     </section>
   );
 }

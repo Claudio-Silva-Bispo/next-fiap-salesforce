@@ -7,6 +7,7 @@ import ContactNetworks from '@/components/ContactNetworks'
 import Quote from '@/components/Quote'
 import ReceivedFeedbacks from '@/components/ReceivedFeedbacks'
 import Accordion from '@/components/Accordion'
+import AboutFeedback from '@/components/AboutFeedback'
 
 export default function Home() {
 
@@ -21,6 +22,7 @@ export default function Home() {
       <Quote/>
       <ReceivedFeedbacks/>
       <Accordion/>
+      <AboutFeedback/>
     </div>
     
   )

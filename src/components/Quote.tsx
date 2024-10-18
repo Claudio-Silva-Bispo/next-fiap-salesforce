@@ -9,7 +9,7 @@ export default function Quote() {
 
   const formRef = useRef<HTMLFormElement>(null); 
 
-    // Estado para controlar a etapa atual do formulário
+  // Estado para controlar a etapa atual do formulário
   const [currentStep, setCurrentStep] = useState(1);
 
   const [formData, setFormData] = useState({
@@ -82,7 +82,7 @@ export default function Quote() {
     console.log('Enviando o formulário com os dados:', formData);
 
       try {
-          const response = await fetch('https://splendid-project-site.vercel.app/api/criarOrcamento', {
+          const response = await fetch('/api/criarOrcamento', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',
@@ -124,8 +124,8 @@ export default function Quote() {
     data-netlify="true"
     netlify-honeypot="bot-field"
     onSubmit={handleSubmit}
-    id="FormQuote"
-    className='bg-primeira grid md:flex p-5 justify-center items-center min-h-[640px]'>
+    id="quote"
+    className='bg-primeira grid md:flex p-3 justify-center items-center min-h-[640px]'>
         
         <input type="hidden" name="form-name" value="form-quote-oliver" />
         <input type="hidden" name="firstName" value={formData.firstName} />
@@ -147,12 +147,12 @@ export default function Quote() {
         {renderStep()}
             <div className="flex justify-between">
             {currentStep > 1 && (
-                <button type="button" onClick={prevStep} className="mt-4 bg-gray-200 hover:bg-gray-300 text-black py-2 px-4 rounded">
+                <button type="button" onClick={prevStep} className="mt-4 bg-gray-200 hover:bg-gray-300 text-gray-600 py-2 px-4 rounded focus:ring hover:ring focus:ring-opacity-75 focus:ring-quinta hover:ring-quinta">
                 Previous
                 </button>
             )}
             {currentStep < 4 && (
-                <button type="button" onClick={nextStep} className="mt-4 bg-primeira hover:bg-primeira text-white py-2 px-4 rounded">
+                <button type="button" onClick={nextStep} className="mt-4 bg-primeira hover:bg-primeira text-gray-600 py-2 px-4 rounded focus:ring hover:ring focus:ring-opacity-75 focus:ring-quinta hover:ring-quinta">
                 Next
                 </button>
             )}
@@ -169,9 +169,9 @@ export default function Quote() {
         <div className="grid md:flex md:flex-col md:justify-center mt-0 w-[100%] order-1 m:p-10">
                 
           <h1 className='text-4xl m:text-6xl tracking-tight text-[#FFFF] uppercase mt-10 md:mt-0'>Obtenha seu Orçamento Hoje</h1>
-          <p className='mt-5 mb-5 text-xl md:text-2xl text-gray-700 w-[100%]'>Para agendar um serviço de limpeza ou solicitar um orçamento, basta preencher o formulário.</p>
-          <p className='mt-5 mb-5 text-xl md:text-2xl text-gray-700 w-[100%]'>Deixe-nos saber os detalhes do serviço que você precisa, seja para limpeza residencial, comercial ou para um evento especial.</p>
-          <p className='mt-5 mb-10 text-xl md:text-2xl text-gray-700 w-[100%]'>Estamos aqui para atender suas necessidades e garantir a limpeza e o conforto que você merece.</p>
+          <p className='mt-5 mb-5 text-xl md:text-2xl text-gray-600 w-[100%]'>Para agendar um serviço de limpeza ou solicitar um orçamento, basta preencher o formulário.</p>
+          <p className='mt-5 mb-5 text-xl md:text-2xl text-gray-600 w-[100%]'>Deixe-nos saber os detalhes do serviço que você precisa, seja para limpeza residencial, comercial ou para um evento especial.</p>
+          <p className='mt-5 mb-10 text-xl md:text-2xl text-gray-600 w-[100%]'>Estamos aqui para atender suas necessidades e garantir a limpeza e o conforto que você merece.</p>
 
         </div>
 
@@ -197,7 +197,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ onChange }) => {
         
             <div className="sm:col-span-3">
 
-                <label htmlFor="firstName" className="block text-sm leading-6 text-gray-900">
+                <label htmlFor="firstName" className="block text-sm leading-6 text-gray-600">
                     Full name
                 </label>
 
@@ -217,7 +217,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ onChange }) => {
 
             <div className="sm:col-span-3">
 
-                <label htmlFor="phone" className="block text-sm leading-6 text-gray-900">
+                <label htmlFor="phone" className="block text-sm leading-6 text-gray-600">
                     Phone number
                 </label>
 
@@ -236,7 +236,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ onChange }) => {
 
             <div className="sm:col-span-4">
 
-                <label htmlFor="email" className="block text-sm leading-6 text-gray-900">
+                <label htmlFor="email" className="block text-sm leading-6 text-gray-600">
                     Email address
                 </label>
                 <div className="mt-2">
@@ -274,7 +274,7 @@ const ResidenceInfo: React.FC<ResidenceInfoProps> = ({ onChange }) => {
             
             <div className="col-span-full">
                 
-                <label htmlFor="street-address" className="block text-sm leading-2 text-gray-900">
+                <label htmlFor="street-address" className="block text-sm leading-2 text-gray-600">
                     Street address
                 </label>
 
@@ -294,7 +294,7 @@ const ResidenceInfo: React.FC<ResidenceInfoProps> = ({ onChange }) => {
 
             <div className="sm:col-span-2 sm:col-start-1">
                 
-                <label htmlFor="city" className="block text-sm leading-6 text-gray-900">
+                <label htmlFor="city" className="block text-sm leading-6 text-gray-600">
                     City
                 </label>
 
@@ -314,7 +314,7 @@ const ResidenceInfo: React.FC<ResidenceInfoProps> = ({ onChange }) => {
 
             <div className="sm:col-span-2">
             
-                <label htmlFor="region" className="block text-sm leading-6 text-gray-900">
+                <label htmlFor="region" className="block text-sm leading-6 text-gray-600">
                     State / Province
                 </label>
 
@@ -334,7 +334,7 @@ const ResidenceInfo: React.FC<ResidenceInfoProps> = ({ onChange }) => {
 
             <div className="sm:col-span-2">
 
-                <label htmlFor="postal-code" className="block text-sm leading-6 text-gray-900">
+                <label htmlFor="postal-code" className="block text-sm leading-6 text-gray-600">
                     ZIP / Postal code
                 </label>
 
@@ -372,7 +372,7 @@ const AdditionalInfo: React.FC<AdditionalInfoProps> = ({ onChange }) => {
 
             <div className='sm:col-span-3'>
                 
-                <label htmlFor="rooms" className="block text-sm leading-6 text-gray-900">
+                <label htmlFor="rooms" className="block text-sm leading-6 text-gray-600">
                 How many rooms?
                 </label>
                 
@@ -404,7 +404,7 @@ const AdditionalInfo: React.FC<AdditionalInfoProps> = ({ onChange }) => {
 
             <div className='sm:col-span-3'>
                     
-                <label htmlFor="pets" className="block text-sm leading-6 text-gray-900">
+                <label htmlFor="pets" className="block text-sm leading-6 text-gray-600">
                 Do you have pets?
                 </label>
                 
@@ -428,7 +428,7 @@ const AdditionalInfo: React.FC<AdditionalInfoProps> = ({ onChange }) => {
 
             <div className='sm:col-span-3'>
                     
-                <label htmlFor="frequency" className="block text-sm leading-6 text-gray-900">
+                <label htmlFor="frequency" className="block text-sm leading-6 text-gray-600">
                 What is the frequency?
                 </label>
                 
@@ -474,7 +474,7 @@ const Schedule: React.FC<ScheduleProps> = ({ onChange }) => {
             
             <div className='sm:col-span-3'>
                 
-                <label htmlFor="date" className="block text-sm leading-6 text-gray-900">
+                <label htmlFor="date" className="block text-sm leading-6 text-gray-600">
                     Date
                 </label>
                 
@@ -493,7 +493,7 @@ const Schedule: React.FC<ScheduleProps> = ({ onChange }) => {
 
             <div className='sm:col-span-3'>
                 
-                <label htmlFor="hour" className="block text-sm leading-6 text-gray-900">
+                <label htmlFor="hour" className="block text-sm leading-6 text-gray-600">
                     Hour
                 </label>
                 
@@ -511,7 +511,7 @@ const Schedule: React.FC<ScheduleProps> = ({ onChange }) => {
 
             <div className="sm:col-span-6">
 
-                <label htmlFor='message' className="flex mb-2 text-sm text-gray-900">Aditional information</label>
+                <label htmlFor='message' className="flex mb-2 text-sm text-gray-600">Aditional information</label>
 
                 <textarea id="message" name='message' rows={5} className="block w-full text-lg text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-5" placeholder="Leave a comment..." onChange={(e) => onChange(e.target.name, e.target.value)}></textarea>
 

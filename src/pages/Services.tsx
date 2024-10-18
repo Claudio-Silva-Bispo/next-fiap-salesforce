@@ -20,8 +20,8 @@ const InfoCard: React.FC<CardProps> = ({ icon, color, title, description }) => {
         {icon}
       </div>
       <div className="p-5">
-        <h2 className="text-xl font-bold mb-2">{title}</h2>
-        <p className="text-gray-700 mb-4">{description}</p>
+        <h2 className="text-xl font-bold mb-2 text-gray-700">{title}</h2>
+        <p className="text-gray-600 mb-4">{description}</p>
       </div>
       <div className="p-5 pt-0">
         <hr className="border-t border-gray-200 mb-4" />
@@ -35,8 +35,8 @@ const InfoCard: React.FC<CardProps> = ({ icon, color, title, description }) => {
 
 const Services: React.FC = () => {
   return (
-    <section className="bg-[#DEE8FE] min-h-screen p-10">
-      <h1 className="text-5xl font-bold mb-10 text-start pt-20">Soluções</h1>
+    <section className="bg-[#DEE8FE] min-h-screen p-3">
+      <h1 className="text-5xl font-bold mb-10 text-start pt-20 text-gray-700">Soluções</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <InfoCard
           icon={<LibraryAddIcon fontSize="large" />}

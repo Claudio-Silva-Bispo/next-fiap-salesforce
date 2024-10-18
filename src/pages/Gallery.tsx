@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 const services = {
   rooms: [
-    { id: 1, name: 'Cozinha', images: ['imagem-um.jpg', 'imagem-dois.jpg'] },
+    { id: 1, name: 'Cozinha', images: ['/assets/Carrosel/cozinha/20200123_150607.jpg', 'imagem-dois.jpg'] },
     { id: 2, name: 'Banheiro', images: ['imagem-tres.jpg', 'imagem-quatro.jpg'] },
     { id: 3, name: 'Sala', images: ['imagem-cinco.jpg'] },
     { id: 4, name: 'Quarto', images: ['imagem-seis.jpg', 'imagem-sete.jpg', 'imagem-oito.jpg'] },
@@ -61,20 +62,20 @@ export default function Gallery() {
         </div>
 
         {/* Seção da galeria de imagens */}
-        {/*
+        
         <div className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4">
-          <img src="/assets/Carrosel/imagem-um.jpg" alt="" className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-3 md:row-start-1 bg-gray-500 aspect-square" />
-          <img alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/imagem-cinco.jpg" />
-          <img alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/imagem-tres.jpg" />
-          <img alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/imagem-quatro.jpg" />
-          <img alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/imagem-seis.jpg" />
-          <img alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/imagem-sete.jpg" />
-          <img alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/imagem-oito.jpg" />
-          <img alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/imagem-nove.jpg" />
-          <img alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/imagem-dez.jpg" />
-          <img src="/assets/Carrosel/imagem-dois.jpg" alt="" className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-1 md:row-start-3 bg-gray-500 aspect-square" />
+          <Image width={800} height={400} src="/assets/Carrosel/cozinha/20210201_131604.jpg" alt="image about kitchen" className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-3 md:row-start-1 bg-gray-500 aspect-square" />
+          <Image width={800} height={400} alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/cozinha/20210122_172648.jpg" />
+          <Image width={800} height={400} alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/cozinha/IMG-20200204-WA0029.jpg" />
+          <Image width={800} height={400} alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/sala/IMG-20200204-WA0022.jpg" />
+          <Image width={800} height={400} alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/sala/20201217_095105.jpg" />
+          <Image width={800} height={400} alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/quarto/20201125_151146.jpg" />
+          <Image width={800} height={400} alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/quarto/20201202_120913.jpg" />
+          <Image width={800} height={400} alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/banheiro/20201125_105927.jpg" />
+          <Image width={800} height={400} alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src="/assets/Carrosel/banheiro/20201125_151802.jpg" />
+          <Image width={800} height={400} src="/assets/Carrosel/personalizado/20201217_123521.jpg" alt="" className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-1 md:row-start-3 bg-gray-500 aspect-square" />
         </div>
-        */}
+        
 
         {/* Botões de navegação na parte inferior */}
         <div className="flex justify-center mt-6">

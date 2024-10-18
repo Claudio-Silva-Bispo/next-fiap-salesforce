@@ -10,7 +10,7 @@ export default function Hero() {
                 }}
             >
                 <div className="container flex flex-col items-start px-4 py-16 pb-24 mx-auto text-start lg:pb-56 md:py-32 md:px-10 lg:px-32 text-gray-50">
-                    <h1 className="text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl text-gray-50 pt-20">
+                    <h1 className="text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl text-gray-50 pt-10">
                     Proporcione um ambiente limpo e seguro.
                     </h1>
                     <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl text-gray-50">
@@ -20,15 +20,15 @@ export default function Hero() {
                     <div className="flex flex-col s:flex-col sm:flex-row justify-start w-full gap-4">
                         <button
                             type="button"
-                            className="w-full s:w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded bg-gray-100 text-gray-900"
+                            className="w-full s:w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded bg-gray-100 text-gray-900 hover:bg-primeira focus:ring hover:ring focus:ring-opacity-75 focus:ring-quinta hover:ring-quinta"
                         >
-                            Contato
+                            <a href="/ContactSection">Contato</a>
                         </button>
                         <button
                             type="button"
-                            className="w-full s:w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded bg-gray-100 text-gray-900"
+                            className="w-full s:w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded bg-gray-100 text-gray-900 hover:bg-primeira focus:ring hover:ring focus:ring-opacity-75 focus:ring-quinta hover:ring-quinta"
                         >
-                            Serviços
+                            <a href="/Services">Serviços</a>
                         </button>
                     </div>
                 </div>

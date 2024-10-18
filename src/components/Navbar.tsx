@@ -2,12 +2,18 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faHome, faBuilding, faPhone, faCalendarAlt, faCalendarTimes, faComments, faChevronDown, faUsers, faThumbsUp, faShareAlt, faEnvelope, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
+// Instalar npm install primeicons
+// Desinstalar npm uninstall primeicons
+//import 'primeicons/primeicons.css';
+import Link from 'next/link';
 
 export default function Navbar() {
   const [isHeroVisible, setIsHeroVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [activeHash, setActiveHash] = useState('');
   const router = useRouter();
 
   const menuItems = [
@@ -18,7 +24,7 @@ export default function Navbar() {
     { item: 'Serviços', path: '/Services', icon: faCalendarTimes },
     { item: 'Feedback', path: '/Feedback', icon: faComments },
     { item: 'Testimonials', path: '/Testimonials', icon: faThumbsUp },
-    { item: 'Redes Sociais', path: '#social-media', icon: faShareAlt },
+    { item: 'Dicas', path: '/Tips', icon: faShareAlt },
     { item: 'Time', path: '/Team', icon: faUsers },
     { item: 'Galeria', path: '/Gallery', icon: faGlobe },
   ];
@@ -56,10 +62,10 @@ export default function Navbar() {
       path: '/Testimonials',
     },
     {
-      title: 'Redes Sociais',
+      title: 'Dicas',
       icon: faShareAlt,
-      description: 'Siga nossa empresa nas redes',
-      path: '#social-media',
+      description: 'Fique ligado nas melhores dicas.',
+      path: '/Tips',
     },
     {
       title: 'Time',
@@ -78,9 +84,27 @@ export default function Navbar() {
       title: 'Galeria',
       icon: faGlobe,
       description: 'Fotos dos principais serviços',
-      path: '#global-reach',
+      path: '/Gallery',
     },
   ];
+
+  // Rotas 
+
+  const handleHashLinkClick = (hash: string) => {
+    if (hash.startsWith('#')) {
+      if (router.pathname === '/') {
+        // Se estiver na home, rolar para a seção
+        document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // Caso contrário, navega para a home e rola para a seção
+        router.push(`/`).then(() => {
+          document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+    } else {
+      router.push(hash);
+    }
+  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -133,20 +157,20 @@ export default function Navbar() {
   }, [router.pathname]);
 
   return (
-    <header className={`p-4 fixed top-0 w-full z-50 ${isHeroVisible ? 'bg-transparent text-white hover:text-gray-700' : 'bg-segunda'}`} >
+    <header className={`p-4 fixed top-0 w-full z-50 ${isHeroVisible ? 'bg-transparent text-white hover:text-gray-700' : 'bg-white'}`} >
       <div className="container flex justify-between h-10 mx-auto w-full">
         <div className="hidden md:flex md:h-10 md:w-40  ">
-          <a href="/"><img src={""} alt="Logo da empresa" /></a>
+          <a href="/"><Image width={100} height={100} src={""} alt="Logo da empresa" /></a>
         </div>
         <div className="hidden lg:flex items-center space-x-3 text-lg">
-          <a href="/" className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2">
+          <Link href="/" className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2">
             <FontAwesomeIcon icon={faHome} />
             <span>Home</span>
-          </a>
-          <a href="#quote" className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2">
+          </Link>
+          <Link href="#quote" className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2" onClick={() => handleHashLinkClick('#FormQuote')}>
             <FontAwesomeIcon icon={faCalendarAlt} />
             <span>Orçamento</span>
-          </a>
+          </Link>
           <div className="relative" ref={dropdownRef}>
             <button onClick={handleDropdownToggle} className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2">
               <span>Seções</span>
@@ -156,7 +180,7 @@ export default function Navbar() {
               <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-[80vw] bg-white shadow-lg rounded-md z-50">
                 <div className="grid grid-cols-3 gap-4 p-4">
                   {sections.map((section) => (
-                    <a key={section.title} href={section.path} className="flex items-start space-x-3 p-2 hover:bg-gray-100 rounded-md">
+                    <Link key={section.title} href={section.path} className="flex items-start space-x-3 p-2 hover:bg-gray-100 rounded-md" onClick={() => handleHashLinkClick(section.path)}>
                       <div className="bg-gray-200 p-2 rounded-md w-10 h-10 flex items-center justify-center">
                         <FontAwesomeIcon icon={section.icon} className="text-gray-700" />
                       </div>
@@ -164,7 +188,7 @@ export default function Navbar() {
                         <div className="font-semibold">{section.title}</div>
                         <div className="text-sm text-gray-600">{section.description}</div>
                       </div>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -198,16 +222,16 @@ export default function Navbar() {
           <ul className="flex flex-col items-start space-y-4 px-3">
             {menuItems.map((menuItem) => (
               <li key={menuItem.item} className="w-full border-b border-white last:border-none">
-                <a href={menuItem.path} className="text-md text-white flex items-center space-x-3 py-3">
+                <Link href={menuItem.path} className="text-md text-white flex items-center space-x-3 py-3" onClick={() => handleHashLinkClick(menuItem.path)}>
                   <FontAwesomeIcon icon={menuItem.icon} />
                   <span>{menuItem.item}</span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
 
           <div className="mt-auto p-5 w-full m:flex m:justify-center hidden">
-            <img src={""} alt="Logo da empresa" className="w-44 h-auto hidden" />
+            <Image width={100} height={100} src={""} alt="Logo da empresa" className="w-44 h-auto hidden" />
           </div>
         </div>
       )}

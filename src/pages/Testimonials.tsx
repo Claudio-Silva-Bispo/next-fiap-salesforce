@@ -13,7 +13,7 @@ export default function Testimonials() {
     const [loadingError, setLoadingError] = useState(false);
 
     useEffect(() => {
-        fetch('https://olivercleaningservice.com/api/buscarFeedbacks')
+        fetch('api/buscarFeedbacks')
             .then(response => response.json())
             .then((data: Feedback[]) => {
                 const filteredFeedbacks = data.filter(feedback => feedback.mostrar_tela);
@@ -57,7 +57,7 @@ export default function Testimonials() {
                             </p>
                         </div>
                         <div className="flex flex-col items-center justify-center p-4 bg-gray-100 rounded-b-lg">
-                            <p className="text-2xl font-semibold leading-tight text-gray-800">{feedback.nome}</p>
+                            <p className="m:text-2xl font-semibold leading-tight text-gray-800">{feedback.nome}</p>
                             <div className="flex mt-2 text-2xl">
                                 {renderStars(feedback.nota)}
                             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function AboutCompany() {
     return (
@@ -29,7 +30,7 @@ export default function AboutCompany() {
                     </div>
 
                     <div className="flex flex-col justify-center rounded-md">
-                        <img src='/assets/AboutCompany/imagem2.jpg' alt="Foto da equipe aqui"/>
+                        <Image width={800} height={400} src='/assets/AboutCompany/imagem2.jpg' alt="Foto da equipe aqui"/>
                     </div>
 
                 </section>

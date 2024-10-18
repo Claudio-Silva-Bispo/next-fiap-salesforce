@@ -25,7 +25,7 @@ export default function ReceberFeedbacks() {
             backgroundPosition: 'center'
         }}>
 
-            <div className="relative flex flex-col gap-10 p-5">
+            <div className="relative flex flex-col gap-10 p-3">
 
                 <div className="text-center before:block before:w-24 before:h-3 before:mb-5 before:rounded-md before:mx-auto sm:before:mx-0 before:bg-quinta pt-36 p-5 md:p-0 flex flex-col gap-3 items-center md:items-end lg:items-start">
                     <h3 className="text-5xl text-white mb-5 md:mb-0 text-center md:text-end lg:text-start font-bold">Saiba mais</h3>
