@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 const feedbacks = [
-    "O serviço de limpeza foi excelente! A equipe organizou os espaços de forma muito eficiente, o que me ajudou a colocar tudo em ordem rapidamente. Recomendo a todos!",
-    "A qualidade do serviço de limpeza é incomparável. Sempre rápido, eficiente e com preços justos. Eu não escolheria outra empresa!",
-    "Impressionado com a rapidez e a qualidade da limpeza. Muito satisfeito e definitivamente usarei os serviços novamente!",
-    "Trabalho excelente! A equipe foi amigável, eficiente e deixou tudo impecável. Recomendo muito os serviços de limpeza deles."
+    "A Salesforce revolucionou a forma como gerenciamos nossos clientes. A plataforma é intuitiva e oferece funcionalidades que realmente fazem a diferença no nosso dia a dia!",
+    "O suporte da Salesforce é excepcional! Sempre que tivemos dúvidas, a equipe esteve pronta para nos ajudar rapidamente.",
+    "A integração com outras ferramentas é perfeita. Conseguimos automatizar diversos processos e economizar muito tempo!",
+    "A personalização da dashboard é uma das melhores características da Salesforce. Agora, conseguimos visualizar as informações que realmente importam para o nosso negócio."
 ];
+
 
 export default function ReceberFeedbacks() {
     const [feedbackAtivo, setFeedbackAtivo] = useState(0);

@@ -7,14 +7,15 @@ export default function Parceiros(){
 
             <div className="relative w-full flex gap-4 py-6 overflow-x-hidden">
                 <div className="flex gap-4 animate-marquee">
-                    <Image width={800} height={400} className="h-48 aspect-video rounded-sm object-fill object-center bg-gray-500" src="/assets/Carrosel/sala/20200813_115950.jpg" alt="Room photo" />
-                    <Image width={800} height={400} className="h-48 aspect-video rounded-sm object-fill object-center bg-gray-500" src="/assets/Carrosel/sala/20201125_151608.jpg" alt="Image 2" />
-                    <Image width={800} height={400} className="h-48 aspect-video rounded-sm object-fill object-center bg-gray-500" src="/assets/Carrosel/sala/20201217_095105.jpg" alt="Image 3" />
-                    <Image width={800} height={400} className="h-48 aspect-video rounded-sm object-fill object-center bg-gray-500" src="/assets/Carrosel/banheiro/20201125_105927.jpg" alt="Image 4" />
-                    <Image width={800} height={400} className="h-48 aspect-video rounded-sm object-fill object-center bg-gray-500" src="/assets/Carrosel/banheiro/20201125_151240.jpg" alt="Image 5" />
-                    <Image width={800} height={400} className="h-48 aspect-video rounded-sm object-fill object-center bg-gray-500" src="/assets/Carrosel/banheiro/20201217_151100.jpg" alt="Image 6" />
-                    <Image width={800} height={400} className="h-48 aspect-video rounded-sm object-fill object-center bg-gray-500" src="/assets/Carrosel/cozinha/20200211_175828.jpg" alt="Image 7" />
-                    <Image width={800} height={400} className="h-48 aspect-video rounded-sm object-fill object-center bg-gray-500" src="/assets/Carrosel/cozinha/20200701_143833.jpg" alt="Image 8" />
+                    <Image width={800} height={400} className="h-48 aspect-video rounded-sm object-fill object-center" src="/assets/Carrosel/imagem.png" alt="Room photo" />
+                    <Image width={800} height={400} className="h-48 aspect-video rounded-sm object-fill object-center " src="/assets/Carrosel/imagem2.png" alt="Image 2" />
+                    <Image width={800} height={400} className="h-48 aspect-video rounded-sm object-fill object-center " src="/assets/Carrosel/imagem3.png" alt="Image 3" />
+                    <Image width={800} height={400} className="h-48 aspect-video rounded-sm object-fill object-center" src="/assets/Carrosel/imagem4.png" alt="Image 4" />
+                    <Image width={800} height={400} className="h-48 aspect-video rounded-sm object-fill object-center " src="/assets/Carrosel/imagem5.png" alt="Image 5" />
+                    <Image width={800} height={400} className="h-48 aspect-video rounded-sm object-fill object-center" src="/assets/Carrosel/10.png" alt="Image 6" />
+                    <Image width={800} height={400} className="h-48 aspect-video rounded-sm object-fill object-center" src="/assets/Carrosel/imagem8.png" alt="Image 6" />
+                    <Image width={800} height={400} className="h-48 aspect-video rounded-sm object-fill object-center" src="/assets/Carrosel/imagem6.png" alt="Image 6" />
+                 
                 </div>
             </div>
 

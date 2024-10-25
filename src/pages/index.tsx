@@ -6,20 +6,22 @@ import ContactNetworks from '@/components/ContactNetworks'
 import Quote from '@/components/Quote'
 import ReceivedFeedbacks from '@/components/ReceivedFeedbacks'
 import Accordion from '@/components/Accordion'
+import ScrollByVoice from '@/components/ScrollByVoice'; 
 
 export default function Home() {
 
   return (
     <div> 
-      <Hero/>
-      <Parceiros/>
-      <About/>
-      <Contact/>
-      <ContactNetworks/>
-      <Quote/>
-      <ReceivedFeedbacks/>
-      <Accordion/>
+      <section id="hero"><Hero /></section>
+      <section id="parceiros"><Parceiros /></section>
+      <section id="about"><About /></section>
+      <section id="contact"><Contact /></section>
+      <section id="contact-networks"><ContactNetworks /></section>
+      <section id="quote"><Quote /></section>
+      <section id="received-feedbacks"><ReceivedFeedbacks /></section>
+      <section id="accordion"><Accordion /></section>
+
+      <ScrollByVoice /> {/* Componente de Scroll por voz */}
     </div>
-    
   )
 }

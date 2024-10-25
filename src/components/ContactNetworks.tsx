@@ -1,6 +1,6 @@
 export default function ContactNetworks() {
   return (
-    <section className="bg-segunda" id="social-media">
+    <section className="bg-terceira" id="social-media">
 
       <div className="container p-3 mx-auto space-y-6 md:text-center lg:p-8 lg:space-y-8">
         

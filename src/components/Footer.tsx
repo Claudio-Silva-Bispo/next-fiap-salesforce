@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
             <Image
               width={100}
               height={100}
-              src="/assets/Navbar/imagem.svg"
+              src="/assets/Footer/salesforce-logo.svg"
               alt="Logo da empresa"
               className="w-32"
             />

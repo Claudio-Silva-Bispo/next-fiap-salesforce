@@ -8,6 +8,12 @@ import AccessibilityMenu from '@/components/MenuAcessibilidade';
 import { FontSizeProvider } from '@/contexts/FontSizeContext';
 import VoiceNavigation from '@/components/VoiceNavigation';
 import SearchNavigation  from '@/components/SearchNavigator';
+import HelpModal from '@/components/HelpModal';
+import AccessibilityHintModal from '@/components/AccessibilityHintModal';
+import ScrollByVoice from '@/components/ScrollByVoice';
+import FontControl from '@/components/FontControl';
+import VoiceThemeToggle from '@/components/VoiceThemeToggle';
+import Chat from '@/components/Chat';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const router = useRouter();
@@ -24,6 +30,12 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         <VoiceNavigation />
         <AccessibilityMenu />   
         <SearchNavigation />
+        <HelpModal/>
+        <AccessibilityHintModal />
+        <ScrollByVoice />
+        <FontControl />
+        <VoiceThemeToggle />
+        <Chat />
       </div>
     </FontSizeProvider>
   );

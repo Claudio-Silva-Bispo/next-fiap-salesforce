@@ -33,7 +33,7 @@ const SearchNavigation = () => {
         // Escutar eventos de teclado
         const handleKeyDown = (event: KeyboardEvent) => {
             // Verifique se a tecla pressionada é uma tecla específica, como 'F1'
-            if (event.key === 'n') { // Altere a tecla conforme necessário
+            if (event.key === 'v') { // Altere a tecla conforme necessário
                 startRecognition();
             }
         };

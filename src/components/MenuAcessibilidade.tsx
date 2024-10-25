@@ -5,7 +5,7 @@ import { useFontSize } from '@/contexts/FontSizeContext';
 
 const AccessibilityMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(false); // Estado para gerenciar o tema
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const { fontSize, increaseFontSize, decreaseFontSize } = useFontSize();
 
@@ -31,6 +31,14 @@ const AccessibilityMenu = () => {
       setIsOpen(false);
     }
 
+    if (event.key === 's') { // Abrir o menu com a tecla 'S'
+      setIsOpen(true);
+    }
+
+    if (event.key === 'f') { // Fechar o menu com a tecla 'F'
+      setIsOpen(false);
+    }
+
     if (event.shiftKey && event.key === 'A') {
       toggleMenu();
     }
@@ -43,7 +51,6 @@ const AccessibilityMenu = () => {
     };
   }, []);
 
-  // Função para alternar o tema
   const toggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
     if (!isDarkTheme) {
@@ -55,7 +62,6 @@ const AccessibilityMenu = () => {
 
   return (
     <div>
-      {/* Botão de engrenagem */}
       <button
         onClick={toggleMenu}
         aria-expanded={isOpen}
@@ -65,7 +71,6 @@ const AccessibilityMenu = () => {
         <FontAwesomeIcon icon={faCog} size="lg" />
       </button>
 
-      {/* Menu de acessibilidade */}
       {isOpen && (
         <div
           ref={menuRef}
@@ -100,7 +105,6 @@ const AccessibilityMenu = () => {
                 Fonte atual: {fontSize}px
               </span>
             </li>
-            {/* Botão para alternar tema */}
             <li className="flex items-center">
               <button onClick={toggleTheme} className="text-gray-700 flex items-center">
                 {isDarkTheme ? (
