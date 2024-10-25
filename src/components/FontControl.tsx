@@ -46,7 +46,7 @@ const FontControl = () => {
   }, [isActive, recognition]);
 
   return (
-    <div>
+    <div className='hidden'>
       <p>
         Use 'E' para ativar o controle de voz para aumentar ou diminuir a fonte, e 'R' para desativar.
       </p>

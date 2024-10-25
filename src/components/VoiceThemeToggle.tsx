@@ -32,7 +32,7 @@ const VoiceThemeToggle = () => {
 
   return (
     <div>
-      <button onClick={toggleTheme} className="p-2 bg-gray-200 rounded-md">
+      <button onClick={toggleTheme} className="p-2 bg-gray-200 rounded-md hidden">
         {isDarkTheme ? 'Tema Claro' : 'Tema Escuro'}
       </button>
       <p className="mt-2">Pressione K para tema escuro e L para tema claro.</p>

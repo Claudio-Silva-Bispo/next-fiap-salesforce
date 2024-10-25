@@ -66,6 +66,14 @@ const SearchNavigation = () => {
             router.push('/Documentacao');
         } else if (input.includes('feedback')) {
             router.push('/Feedback');
+        } else if (input.includes('configuracao')) {
+            router.push('/ConfiguracaoPage');
+        } else if (input.includes('descoberta')) {
+            router.push('/FormularioDescoberta');
+        } else if (input.includes('dicas')) {
+            router.push('/Dicas');
+        } else if (input.includes('visao')) {
+            router.push('/BlinkScroll');
         }
         setIsListening(false);
     };

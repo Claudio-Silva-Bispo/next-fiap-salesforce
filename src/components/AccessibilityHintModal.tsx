@@ -13,9 +13,11 @@ const AccessibilityHintModal = () => {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key.toLowerCase() === 'u') {
+      if (event.shiftKey && (event.key === 'u' || event.key === 'U')) {
+        event.preventDefault();
         stopReading(); // Para a leitura ao pressionar 'U'
-      } else if (event.key.toLowerCase() === 'f') {
+      } else if (event.shiftKey && (event.key === 'f' || event.key === 'F')) {
+        event.preventDefault();
         setIsOpen(false); // Fecha o modal ao pressionar 'F'
         stopReading();
       }
@@ -79,9 +81,9 @@ const AccessibilityHintModal = () => {
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
       <div ref={modalRef} className="bg-white p-8 rounded-md max-w-lg w-full">
         <h2 className="text-2xl font-bold mb-4">Dicas de Acessibilidade</h2>
-        <p>Aperte H para abrir o menu de suporte.</p>
-        <p>Aperte Y para ativar a leitura por voz.</p>
-        <p>Aperte U uma vez para desativar a leitura ou U duas vezes para parar o suporte.</p>
+        <p>Aperte SHIF + H para abrir o menu de suporte.</p>
+        <p>Aperte SHIF + Y para ativar a leitura por voz.</p>
+        <p>Aperte SHIF + U uma vez para desativar a leitura ou U duas vezes para parar o suporte.</p>
         <p>Aperte F para fechar este modal.</p>
       </div>
     </div>

@@ -8,13 +8,11 @@ const HelpModal = () => {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key.toLowerCase() === 'h') {
+      if (event.shiftKey && (event.key === 'H' || event.key === 'h')) {
         setIsOpen(true); // Abre o modal ao apertar 'H'
-      } else if (isOpen && event.key.toLowerCase() === 'f') {
+      } else if (isOpen && event.shiftKey && (event.key === 'F' || event.key === 'f')) {
         setIsOpen(false); // Fecha o modal ao apertar 'F'
-      } else if (event.key.toLowerCase() === 'u') {
-        stopReading(); // Para a leitura ao apertar 'U'
-      }
+      } 
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -26,9 +24,9 @@ const HelpModal = () => {
   useEffect(() => {
     if (isOpen) {
       const handleKeyPress = (event: KeyboardEvent) => {
-        if (event.key.toLowerCase() === 'y') {
+        if (event.shiftKey && (event.key === 'Y' || event.key === 'y')) {
           setShouldRead(true);
-        } else if (event.key.toLowerCase() === 'u') {
+        } else if (event.shiftKey && (event.key === 'U' || event.key === 'u')) {
           setShouldRead(false);
         }
       };
@@ -46,8 +44,8 @@ const HelpModal = () => {
       setIsReading(true);
       const textToRead = `Este é o menu de ajuda.
         Você pode navegar usando o Tab.
-        Aperte a tecla V para habilitar a navegação por voz.
-        Aperte S para abrir o suporte de acessibilidade.`;
+        Aperte a tecla SHIFT + V para habilitar a navegação por voz.
+        Aperte SHIFT + S para abrir o suporte de acessibilidade.`;
       
       const speech = new SpeechSynthesisUtterance(textToRead);
       window.speechSynthesis.speak(speech);

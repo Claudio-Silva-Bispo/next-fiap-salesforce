@@ -29,14 +29,9 @@ const AccessibilityMenu: React.FC = () => {
   }, []);
 
   const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
-      setIsOpen(false); // Fecha o menu com a tecla Esc
-    }
-    if (event.key === 'm') {
+    if (event.shiftKey && (event.key === 'M' || event.key === 'm')) {
+      event.preventDefault();
       toggleMenu(); // Abre/fecha o menu com a tecla M
-    }
-    if (event.shiftKey && event.key === 'A') {
-      toggleMenu(); // Abre/fecha o menu com Shift + A
     }
   };
 

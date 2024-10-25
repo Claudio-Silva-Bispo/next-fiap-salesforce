@@ -31,13 +31,13 @@ const ScrollByVoice = () => {
   };
 
   const handleKeydown = (event: KeyboardEvent) => {
-    if (event.key.toLowerCase() === 'd' && isActive) {
+    if (event.shiftKey && (event.key === 'D' || event.key === 'd') && isActive) {
       scrollToNextComponent();
     }
-    if (event.key.toLowerCase() === 'i') {
+    if (event.shiftKey && (event.key === 'I' || event.key === 'i')) {
       scrollToPreviousComponent(); // Agora 'I' volta para o componente anterior
     }
-    if (event.key.toLowerCase() === 'g') {
+    if (event.shiftKey && (event.key === 'G' || event.key === 'g')) {
       // Ativa a navegação por voz
       setIsActive((prev) => !prev);
       if (!isActive) {

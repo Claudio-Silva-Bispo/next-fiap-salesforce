@@ -54,7 +54,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(() => ({
   backgroundColor: '#f9fafb',
 }));
 
-export default function Tips(){
+export default function Dicas(){
     const [expanded, setExpanded] = React.useState<string | false>('panel1');
 
     const handleChange =

@@ -57,9 +57,11 @@ const Chat: React.FC = () => {
 
     // Função para fechar o modal ao pressionar a tecla 'f'
     const handleKeyDown = (event: KeyboardEvent) => {
-        if (event.key === 'c') {
+        if (event.shiftKey && (event.key === 'C' || event.key === 'c')) {
+            event.preventDefault();
             toggleChat();
-        } else if (event.key === 'f' && isOpen) {
+        } else if (event.shiftKey && (event.key === 'F' || event.key === 'f') && isOpen) {
+            event.preventDefault();
             toggleChat();
         }
     };
