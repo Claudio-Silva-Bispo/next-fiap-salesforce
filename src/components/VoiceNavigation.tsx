@@ -43,6 +43,8 @@ const VoiceNavigation = () => {
             router.push('/Documentacao'); 
         } else if (input.includes('feedback')) {
             router.push('/Feedback'); 
+        } else if (input.includes('time')) {
+            router.push('/Time'); 
         }
         
     };

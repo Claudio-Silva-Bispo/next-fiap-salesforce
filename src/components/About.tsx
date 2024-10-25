@@ -22,7 +22,7 @@ export default function About() {
                 </div>
                 <div className="relative w-full h-full xl:col-span-3 flex justify-center items-center">
                     <Image 
-                        src="/assets/Hero/image2.png" 
+                        src="/assets/Menu/imagem.svg" 
                         alt="Limpeza Profissional" 
                         className="object-cover rounded-md" 
                         layout="responsive" 

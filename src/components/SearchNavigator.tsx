@@ -60,6 +60,12 @@ const SearchNavigation = () => {
             router.push('/Sobre'); 
         } else if (input.includes('home')) {
             router.push('/');
+        } else if (input.includes('acessbilidade')) {
+            router.push('/Acessibilidade');
+        } else if (input.includes('documentacao')) {
+            router.push('/Documentacao');
+        } else if (input.includes('feedback')) {
+            router.push('/Feedback');
         }
         setIsListening(false);
     };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faHome, faBuilding, faPhone, faCalendarAlt, faCalendarTimes, faComments, faChevronDown, faUsers, faThumbsUp, faShareAlt, faEnvelope, faGlobe, faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -7,6 +7,9 @@ import Image from 'next/image';
 // Desinstalar npm uninstall primeicons
 //import 'primeicons/primeicons.css';
 import Link from 'next/link';
+import { ReadingContext } from './RightSidebar'; 
+import  FocusableComponent from '../components/FocusableComponent';
+import TextReader from "./TextReader";
 
 export default function Navbar() {
   const [isHeroVisible, setIsHeroVisible] = useState(true);
@@ -15,6 +18,7 @@ export default function Navbar() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [activeHash, setActiveHash] = useState('');
   const router = useRouter();
+  const { isReadingEnabled } = useContext(ReadingContext);
 
   const menuItems = [
     { item: 'Home', path: '/', icon: faHome },
@@ -71,7 +75,7 @@ export default function Navbar() {
       title: 'Time',
       icon: faUsers,
       description: 'Conheça nosso time',
-      path: '/Team',
+      path: '/Time',
     },
     
     {
@@ -160,22 +164,41 @@ export default function Navbar() {
     <header className={`p-4 fixed top-0 w-full z-50 ${isHeroVisible ? 'bg-transparent text-white hover:text-gray-700' : 'bg-white'}`} >
       <div className="container flex items-center justify-between h-10 mx-auto w-full">
         <div className="flex items-center justify-center flex-grow space-x-3 text-lg">
-          <Link href="/" className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2">
-            <FontAwesomeIcon icon={faHome} />
-            <span>Home</span>
-          </Link>
-          <Link href="/Contato" className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2" onClick={() => handleHashLinkClick('#FormQuote')}>
-            <FontAwesomeIcon icon={faCalendarAlt} />
-            <span>Contato</span>
-          </Link>
-          <Link href="/Acessibilidade" className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2" onClick={() => handleHashLinkClick('#FormQuote')}>
-            <FontAwesomeIcon icon={faHeart} />
-            <span>Acessibilidade</span>
-          </Link>
+          <TextReader text="Inicio" isReadingEnabled={isReadingEnabled}>
+            <FocusableComponent id="text1" tabIndex={1}>
+                <Link href="/" className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2">
+                  <FontAwesomeIcon icon={faHome} />
+                  <span>Inicio</span>
+                </Link>
+            </FocusableComponent>
+          </TextReader>
+
+          <TextReader text="Contato" isReadingEnabled={isReadingEnabled}>
+            <FocusableComponent id="text2" tabIndex={1}>
+              <Link  href="/Contato" className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2" onClick={() => handleHashLinkClick('#FormQuote')}>
+                <FontAwesomeIcon icon={faCalendarAlt} />
+                <span>Contato</span>
+              </Link>
+            </FocusableComponent>
+          </TextReader>
+
+          <TextReader text="Acessibilidade" isReadingEnabled={isReadingEnabled}>
+            <FocusableComponent id="text3" tabIndex={2}>
+              <Link href="/Documentacao" className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2" onClick={() => handleHashLinkClick('#FormQuote')}>
+                <FontAwesomeIcon icon={faHeart} />
+                <span>Acessibilidade</span>
+              </Link>
+            </FocusableComponent>
+          </TextReader>
+
           <div className="relative" ref={dropdownRef}>
             <button onClick={handleDropdownToggle} className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2">
-              <span>Seções</span>
-              <FontAwesomeIcon icon={faChevronDown} />
+              <TextReader text="Sessões" isReadingEnabled={isReadingEnabled}>
+                <FocusableComponent id="text4" tabIndex={3}>
+                  <span>Seções</span>
+                  <FontAwesomeIcon icon={faChevronDown} />
+                </FocusableComponent>
+            </TextReader>
             </button>
             {isDropdownOpen && (
               <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-[80vw] bg-white shadow-lg rounded-md z-50">
@@ -198,7 +221,11 @@ export default function Navbar() {
           
         </div>
         <div className="hidden lg:flex items-center">
-          <a href="tel:+5511999999999" className="px-4 py-2 bg-gray-500 text-white rounded-md">Contato 0800 878-5109</a>
+          <TextReader text="Ligue agora" isReadingEnabled={isReadingEnabled}>
+            <FocusableComponent id="text5" tabIndex={4}>
+              <a href="tel:+5511999999999" className="px-4 py-2 bg-gray-500 text-white rounded-md">Contato 0800 878-5109</a>
+            </FocusableComponent>
+          </TextReader>
         </div>
         <button onClick={toggleMobileMenu} className="lg:hidden p-4 text-gray-800">
           <FontAwesomeIcon icon={faBars} size="lg" />

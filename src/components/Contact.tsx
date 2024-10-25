@@ -68,21 +68,21 @@ export default function Contact() {
     return (
         <section className="py-3 bg-terceira text-gray-900" id="contact">
             <div className="grid grid-cols-1 px-3 mx-auto lg:px-8 md:grid-cols-2 md:divide-x md:pt-20">
-                <div>
+                <div className='p-20'>
                     <div className="py-6 md:py-0 md:px-6 flex flex-col justify-start">
                         <h1 className="text-5xl font-bold text-white">Entre em contato</h1>
                         <p className="pt-5 pb-4 text-2xl text-gray-600">Preenchendo este formulário simples, nossa equipe entrará em contato com você dentro de duas horas.</p>
                     </div>
 
                     <div className="py-6 md:py-0 md:px-6 flex flex-col justify-center">
-                        <h2 className="text-4xl md:text-3xl font-bold text-white mb-5 pt-5">Dados para contato</h2>
+                        <h2 className="text-4xl font-bold text-white mb-5 pt-5">Dados para contato</h2>
                         <p className="flex items-center mb-3 text-gray-700 text-2xl">Fake address, 9999 City</p>
                         <p className="flex items-center mb-3 text-gray-600 text-2xl">123456789</p>
                         <p className="flex items-center mb-3 text-gray-600 text-2xl">contact@business.com</p>
                     </div>
 
                     <div className="py-6 md:py-0 md:px-6 flex flex-col justify-center">
-                        <h2 className="text-4xl md:text-3xl font-bold text-white mb-5 pt-5">Sobre o formulário acessível</h2>
+                        <h2 className="text-4xl font-bold text-white mb-5 pt-5">Sobre o formulário acessível</h2>
                         <p className="pb-4 text-2xl text-gray-600">
                         Nosso formulário é fácil de usar e oferece duas maneiras de preenchê-lo: 1. você pode digitar suas respostas ou 2. simplesmente falar, e o sistema vai entender o que você está dizendo. Isso facilita o processo para todos, tornando-o rápido e acessível, seja no computador ou no celular. Basta escolher a forma que for mais conveniente para você!
                         </p>

@@ -3,17 +3,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faMinus, faMoon, faPlus, faSun, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useFontSize } from '@/contexts/FontSizeContext';
 
-const AccessibilityMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
-  const { fontSize, increaseFontSize, decreaseFontSize } = useFontSize();
+const AccessibilityMenu: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false); // Estado que controla se o menu está aberto ou fechado
+  const [isDarkTheme, setIsDarkTheme] = useState(false); // Estado para o tema escuro
+  const [isAudioEnabled, setIsAudioEnabled] = useState(true); // Estado para controlar se o áudio está habilitado
+  const menuRef = useRef<HTMLDivElement>(null); // Referência para o menu
+  const { fontSize, increaseFontSize, decreaseFontSize } = useFontSize(); // Desestruturar do contexto de tamanho de fonte
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev); // Alterna o estado do menu
   };
 
   const handleClickOutside = (event: MouseEvent) => {
+    // Fecha o menu se clicar fora dele
     if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
       setIsOpen(false);
     }
@@ -28,19 +30,13 @@ const AccessibilityMenu = () => {
 
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
-      setIsOpen(false);
+      setIsOpen(false); // Fecha o menu com a tecla Esc
     }
-
-    if (event.key === 's') { // Abrir o menu com a tecla 'S'
-      setIsOpen(true);
+    if (event.key === 'm') {
+      toggleMenu(); // Abre/fecha o menu com a tecla M
     }
-
-    if (event.key === 'f') { // Fechar o menu com a tecla 'F'
-      setIsOpen(false);
-    }
-
     if (event.shiftKey && event.key === 'A') {
-      toggleMenu();
+      toggleMenu(); // Abre/fecha o menu com Shift + A
     }
   };
 
@@ -52,21 +48,32 @@ const AccessibilityMenu = () => {
   }, []);
 
   const toggleTheme = () => {
-    setIsDarkTheme(!isDarkTheme);
-    if (!isDarkTheme) {
-      document.documentElement.classList.add('bg-gray-800', 'text-white');
-    } else {
-      document.documentElement.classList.remove('bg-gray-800', 'text-white');
+    setIsDarkTheme((prev) => {
+      const newTheme = !prev;
+      document.documentElement.classList.toggle('bg-gray-800', newTheme);
+      document.documentElement.classList.toggle('text-white', newTheme);
+      return newTheme; // Retorna o novo estado do tema
+    });
+  };
+
+  const interruptAudio = () => {
+    const audioElements = document.querySelectorAll('audio');
+    if (isAudioEnabled) {
+      audioElements.forEach((audio) => {
+        audio.pause();
+        audio.currentTime = 0; // Interrompe todos os elementos de áudio
+      });
     }
+    setIsAudioEnabled((prev) => !prev); // Alterna o estado do áudio
   };
 
   return (
     <div>
       <button
-        onClick={toggleMenu}
-        aria-expanded={isOpen}
+        onClick={toggleMenu} // Abre/fecha o menu ao clicar
+        aria-expanded={isOpen} // Indica se o menu está aberto
         aria-controls="accessibility-menu"
-        className="fixed right-4 top-1/2 transform -translate-y-1/2 p-2 bg-gray-200 rounded-full shadow-lg z-50"
+        className="fixed right-4 top-1/3 transform -translate-y-1/2 p-2 bg-gray-200 rounded-full shadow-lg z-50"
       >
         <FontAwesomeIcon icon={faCog} size="lg" />
       </button>
@@ -80,14 +87,14 @@ const AccessibilityMenu = () => {
           aria-labelledby="accessibility-menu-title"
         >
           <button 
-            onClick={toggleMenu} 
+            onClick={toggleMenu} // Fecha o menu ao clicar no botão de fechar
             className="absolute top-4 right-4" 
             aria-label="Fechar menu de acessibilidade"
           >
             <FontAwesomeIcon icon={faTimes} size="lg" />
           </button>
           <h2 id="accessibility-menu-title" className="font-bold text-center my-4 text-gray-800">Acessibilidade</h2>
-          <ul className="flex flex-col items-start space-y-4 px-2">
+          <ul className="flex flex-col items-start space-y-4 px-10">
             <li className="flex items-center">
               <button onClick={increaseFontSize} className="text-gray-700 flex items-center">
                 <FontAwesomeIcon icon={faPlus} className="mr-2" />
@@ -113,6 +120,27 @@ const AccessibilityMenu = () => {
                   <FontAwesomeIcon icon={faMoon} className="mr-2" />
                 )}
                 {isDarkTheme ? 'Tema Claro' : 'Tema Escuro'}
+              </button>
+            </li>
+            <li className='text-gray-800'>
+              <a href="/ConfiguracaoPage">Personalização</a>
+            </li>
+            <li className='text-gray-800'>
+              <a href='http://t.me/challengefiap_bot' target="_blank" rel="noopener noreferrer" className="flex items-center">
+                <FontAwesomeIcon icon={faCog} className="mr-2" />
+                ChatBot
+              </a>
+            </li>
+            <li className='text-gray-800'>
+              <a href="/Documentacao" className="flex items-center">
+                <FontAwesomeIcon icon={faCog} className="mr-2" />
+                Documentação
+              </a>
+            </li>
+            <li className="flex items-center">
+              <button onClick={interruptAudio} className="text-gray-700 flex items-center">
+                <FontAwesomeIcon icon={isAudioEnabled ? faTimes : faCog} className="mr-2" />
+                {isAudioEnabled ? 'Interromper Áudio' : 'Ativar Áudio'}
               </button>
             </li>
           </ul>
