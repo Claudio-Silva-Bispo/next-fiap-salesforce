@@ -6,13 +6,19 @@
 @tailwind components;
 @tailwind utilities;
 
-.border {
+  .border {
   margin: 0; /* Remover margens */
   padding: 0; /* Remover preenchimento */
-}
+  }
 
-body {
+  body {
     font-family: 'Inter', sans-serif;
+    font-size: inherit;
+    line-height: 1.5; 
+  }
+  * {
+    box-sizing: border-box;
+    font-size: inherit;
   }
   
   h1 {

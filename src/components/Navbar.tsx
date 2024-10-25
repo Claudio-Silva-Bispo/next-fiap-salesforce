@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faHome, faBuilding, faPhone, faCalendarAlt, faCalendarTimes, faComments, faChevronDown, faUsers, faThumbsUp, faShareAlt, faEnvelope, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHome, faBuilding, faPhone, faCalendarAlt, faCalendarTimes, faComments, faChevronDown, faUsers, faThumbsUp, faShareAlt, faEnvelope, faGlobe, faHeart } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 // Instalar npm install primeicons
 // Desinstalar npm uninstall primeicons
@@ -38,34 +38,34 @@ export default function Navbar() {
       path: '/AboutCompany',
     },
     {
-      title: 'Serviços',
+      title: 'Produtos',
       icon: faCalendarTimes,
-      description: 'Lista de serviços',
-      path: '/Services',
+      description: 'Lista de produtos',
+      path: '/Produto',
     },
     {
-      title: 'Contato',
+      title: 'Contatos',
       icon: faPhone,
-      description: 'Get in touch with us',
-      path: '/ContactSection',
+      description: 'Lista com todos os contatos',
+      path: '/Contato',
     },
     {
-      title: 'Feedback',
+      title: 'Para Empresas',
       icon: faComments,
-      description: 'Deixe seu feedback',
-      path: '/Feedback',
+      description: 'Saiba tudo para o seu negócio',
+      path: '/Empresas',
     },
     {
-      title: 'Testimonials',
+      title: 'Feedbacks',
       icon: faThumbsUp,
       description: 'O que nossos clientes andam falando',
-      path: '/Testimonials',
+      path: '/Feedbacks',
     },
     {
       title: 'Dicas',
       icon: faShareAlt,
       description: 'Fique ligado nas melhores dicas.',
-      path: '/Tips',
+      path: '/Dicas',
     },
     {
       title: 'Time',
@@ -78,13 +78,13 @@ export default function Navbar() {
       title: 'Novidades',
       icon: faEnvelope,
       description: 'Fique por dentro das novidades',
-      path: '/NewsLetter',
+      path: '/Novidade',
     },
     {
-      title: 'Galeria',
+      title: 'Documentação',
       icon: faGlobe,
-      description: 'Fotos dos principais serviços',
-      path: '/Gallery',
+      description: 'Saiba tudo que foi feito',
+      path: '/Documentacao',
     },
   ];
 
@@ -158,18 +158,19 @@ export default function Navbar() {
 
   return (
     <header className={`p-4 fixed top-0 w-full z-50 ${isHeroVisible ? 'bg-transparent text-white hover:text-gray-700' : 'bg-white'}`} >
-      <div className="container flex justify-between h-10 mx-auto w-full">
-        <div className="hidden md:flex md:h-10 md:w-40  ">
-          <a href="/"><Image width={100} height={100} src={""} alt="Logo da empresa" /></a>
-        </div>
-        <div className="hidden lg:flex items-center space-x-3 text-lg">
+      <div className="container flex items-center justify-between h-10 mx-auto w-full">
+        <div className="flex items-center justify-center flex-grow space-x-3 text-lg">
           <Link href="/" className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2">
             <FontAwesomeIcon icon={faHome} />
             <span>Home</span>
           </Link>
-          <Link href="#quote" className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2" onClick={() => handleHashLinkClick('#FormQuote')}>
+          <Link href="/Contato" className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2" onClick={() => handleHashLinkClick('#FormQuote')}>
             <FontAwesomeIcon icon={faCalendarAlt} />
-            <span>Orçamento</span>
+            <span>Contato</span>
+          </Link>
+          <Link href="/Acessibilidade" className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2" onClick={() => handleHashLinkClick('#FormQuote')}>
+            <FontAwesomeIcon icon={faHeart} />
+            <span>Acessibilidade</span>
           </Link>
           <div className="relative" ref={dropdownRef}>
             <button onClick={handleDropdownToggle} className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2">
@@ -197,7 +198,7 @@ export default function Navbar() {
           
         </div>
         <div className="hidden lg:flex items-center">
-          <a href="tel:+5511999999999" className="px-4 py-2 bg-gray-500 text-white rounded-md">Contato +(206) 9999-8888</a>
+          <a href="tel:+5511999999999" className="px-4 py-2 bg-gray-500 text-white rounded-md">Contato 0800 878-5109</a>
         </div>
         <button onClick={toggleMobileMenu} className="lg:hidden p-4 text-gray-800">
           <FontAwesomeIcon icon={faBars} size="lg" />
