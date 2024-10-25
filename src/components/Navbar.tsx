@@ -44,8 +44,8 @@ export default function Navbar() {
     {
       title: 'Produtos',
       icon: faCalendarTimes,
-      description: 'Lista de produtos',
-      path: '/Produto',
+      description: 'Acesse nosso formulário de sugestões de novos produtos',
+      path: '/FormularioDescoberta',
     },
     {
       title: 'Contatos',

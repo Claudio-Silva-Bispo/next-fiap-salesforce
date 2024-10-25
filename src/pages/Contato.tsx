@@ -1,9 +1,50 @@
 import { useEffect, useRef, useState } from 'react';
 
 export default function Contact() {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
+
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: "",
+ 
+    });
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch('/api/criarContato', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok){
+                alert('Contato foi salvo!');
+                setFormData({
+                    name: "",
+                    email: "",
+                    message: "",
+                  
+                });
+            } else {
+                alert('Error sending message.');
+            }
+        } catch (error) {
+            console.error('Error sending message:', error);
+            alert('Error sending message.');
+        }
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        setFormData({ ...formData, [e.target.id]: e.target.value });
+    };
+
+    //const [name, setName] = useState('');
+    //const [email, setEmail] = useState('');
+    //const [message, setMessage] = useState('');
     const [instruction, setInstruction] = useState('Clique no botão abaixo ou aperte TAB no teclado para começar a preencher os campos por voz.');
     const recognitionRef = useRef<SpeechRecognition | null>(null);
     const [currentField, setCurrentField] = useState(0); // Controla o campo atual
@@ -18,15 +59,15 @@ export default function Contact() {
                 const transcript = event.results[0][0].transcript.toLowerCase();
                 switch (currentField) {
                     case 0:
-                        setName(transcript);
+                        setFormData(prev => ({ ...prev, name: transcript }));
                         setInstruction('Agora, por favor, diga seu email ou clique no botão correspondente.');
                         break;
                     case 1:
-                        setEmail(transcript);
+                        setFormData(prev => ({ ...prev, email: transcript }));
                         setInstruction('Por último, deixe sua mensagem ou clique no botão correspondente.');
                         break;
                     case 2:
-                        setMessage(transcript);
+                        setFormData(prev => ({ ...prev, message: transcript }));
                         setInstruction('Obrigado! Todos os campos estão preenchidos.');
                         break;
                     default:
@@ -91,15 +132,19 @@ export default function Contact() {
                     
                 </div>
 
-                <form className="flex flex-col py-6 space-y-6 md:py-0 md:px-6">
+                <form 
+                className="flex flex-col py-6 space-y-6 md:py-0 md:px-6"
+                onSubmit={handleSubmit}
+                name="contact-form"
+                method="post">
                     <p className="text-lg text-gray-800">{instruction}</p>
                     <label className="block">
                         <span className="mb-3 text-gray-600">Nome</span>
                         <input
                             type="text"
                             placeholder="Por favor, insira seu nome."
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            value={formData.name}
+                            onChange={handleChange}
                             onFocus={() => handleFieldChange(0)}
                             className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
                         />
@@ -113,8 +158,8 @@ export default function Contact() {
                         <input
                             type="email"
                             placeholder="leroy@jenkins.com"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={formData.email}
+                            onChange={handleChange}
                             onFocus={() => handleFieldChange(1)}
                             className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
                         />
@@ -127,8 +172,8 @@ export default function Contact() {
                         <span className="mb-1 text-gray-600">Mensagem</span>
                         <textarea
                             rows={5}
-                            value={message}
-                            onChange={(e) => setMessage(e.target.value)}
+                            value={formData.message}
+                            onChange={handleChange}
                             onFocus={() => handleFieldChange(2)}
                             className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 mt-3"
                         ></textarea>
@@ -137,7 +182,7 @@ export default function Contact() {
                         Usar voz para preencher a mensagem
                     </button>
 
-                    <button type="button" className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
+                    <button type="submit" className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
                         Enviar
                     </button>
                 </form>
