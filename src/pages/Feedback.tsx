@@ -4,7 +4,6 @@ export default function Feedback() {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
-        phone: "",
         rating: 0,
         message: ""
     });
@@ -24,20 +23,19 @@ export default function Feedback() {
             });
 
             if (response.ok) {
-                alert('Message sent successfully');
+                alert('Feedback cadastrado com sucesso.');
                 setFormData({
                     name: "",
                     email: "",
-                    phone: "",
                     rating: 0,
                     message: "",
                 });
             } else {
-                alert('Error sending message.' + console.log(formData));
+                alert('Error ao cadastrar um feedback.' + console.log(formData));
             }
         } catch (error) {
-            console.error('Error sending message:', error);
-            alert('Error sending message.');
+            console.error('Error Error ao cadastrar um feedback:', error);
+            alert('Error ao cadastrar um feedback.');
         }
     };
 
@@ -50,55 +48,55 @@ export default function Feedback() {
     };
 
     return (
-        <section className="bg-[#DEE8FE] pt-20">
+        <section className="bg-quinta pt-20">
             
             <div className="container flex flex-col lg:flex-row m:pt-20 md:pt-0">
                 <div className="flex flex-col p-4 md:p-20 space-y-6 rounded-sm lg:w-2/3 xl:w-3/5">
                     <h1 className="text-4xl uppercase text-gray-700 font-bold">Sobre nossos serviços, como foi sua experiência?</h1>
 
                     <div className="flex space-x-2 sm:space-x-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 w-6 h-6 text-green-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 w-6 h-6 text-white">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
                         </svg>
                         <div className="space-y-2">
-                            <p className="text-lg font-medium leading-snug text-gray-700">Serviço Residencial</p>
-                            <p className="leading-snug text-gray-600">Serviço rápido e eficiente para sua casa.</p>
+                            <p className="text-lg font-medium leading-snug text-gray-700">Produtos</p>
+                            <p className="leading-snug text-gray-600">Produtos e atendimentos rápido e eficiente para seu negócio</p>
                         </div>
                     </div>
 
                     <div className="flex space-x-2 sm:space-x-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 w-6 h-6 text-green-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 w-6 h-6 text-white">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
                         </svg>
                         <div className="space-y-2">
-                            <p className="text-lg font-medium leading-snug text-gray-700">Serviço Comercial</p>
-                            <p className="leading-snug text-gray-600">Mantenha seu negócio impecável.</p>
+                            <p className="text-lg font-medium leading-snug text-gray-700">Operacional</p>
+                            <p className="leading-snug text-gray-600">Mantenha tudo conectado.</p>
                         </div>
                     </div>
 
                     <div className="flex space-x-2 sm:space-x-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 w-6 h-6 text-green-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 w-6 h-6 text-white">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
                         </svg>
 
                         <div className="space-y-2">
                             <p className="text-lg font-medium leading-snug text-gray-700">Diário, Semanal, Mensal, Personalizado</p>
-                            <p className="leading-snug text-gray-600">Personalize o serviço conforme sua preferência e de acordo com sua agenda.</p>
+                            <p className="leading-snug text-gray-600">Acompanhe seus números através das nossas plataformas compatilhadas e saiba tudo que está acontecendo conforme sua personalização.</p>
                         </div>
                     </div>
 
                     <div className="flex space-x-2 sm:space-x-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 w-6 h-6 text-green-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 w-6 h-6 text-white">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
                         </svg>
                         <div className="space-y-2">
                             <p className="text-lg font-medium leading-snug text-gray-700">Contato</p>
-                            <p className="leading-snug text-gray-600">Escolha o melhor método de contato para você: Telefone, SMS, WhatsApp, E-mail?</p>
+                            <p className="leading-snug text-gray-600">Escolha o melhor método de contato para você: Telefone, SMS, WhatsApp, E-mail? Preecha nosso formulário de Desconberta e tenha sugestão de produtos e saiba se encaixam nas suas necessidades.</p>
                         </div>
                     </div>
                 </div>
 
-                <div className="lg:w-2/3 xl:w-3/5 bg-[#DEE8FE]">
+                <div className="lg:w-2/3 xl:w-3/5 bg-quinta">
                     <div className="flex items-center justify-center p-4 md:p-8 lg:p-12">
                         <div className="flex flex-col max-w-2xl p-6 shadow-sm rounded-xl lg:p-12 bg-white text-gray-700">
                             

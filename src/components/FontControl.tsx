@@ -28,12 +28,12 @@ const FontControl = () => {
   }, [increaseFontSize, decreaseFontSize]);
 
   const handleKeydown = (event: KeyboardEvent) => {
-    if ((event.key === 'E' || event.key === 'e') && !isActive) {
+    if (event.shiftKey && (event.key === 'E' || event.key === 'e') && !isActive) {
       setShowInstructions(true);
       setIsActive(true);
       recognition.start(); 
     }
-    if ((event.key === 'R' || event.key === 'r') && isActive) {
+    if ( event.shiftKey && (event.key === 'R' || event.key === 'r') && isActive) {
       setIsActive(false);
       recognition.stop();
       setShowInstructions(false); // Fecha o modal ao desativar

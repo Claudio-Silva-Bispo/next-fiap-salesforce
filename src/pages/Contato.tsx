@@ -156,7 +156,7 @@ export default function Contact() {
                             className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
                         />
                     </label>
-                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(0)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira  focus:ring-quinta hover:ring-quinta w-full">
+                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(0)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-white   focus:ring-quinta hover:ring-quinta w-full">
                         Usar voz para preencher o nome
                     </button>
 
@@ -172,7 +172,7 @@ export default function Contact() {
                             className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
                         />
                     </label>
-                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(1)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira  focus:ring-quinta hover:ring-quinta w-full">
+                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(1)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-white   focus:ring-quinta hover:ring-quinta w-full">
                         Usar voz para preencher o email
                     </button>
 
@@ -187,11 +187,11 @@ export default function Contact() {
                             className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 mt-3"
                         ></textarea>
                     </label>
-                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(2)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira  focus:ring-quinta hover:ring-quinta w-full">
+                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(2)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-white  focus:ring-quinta hover:ring-quinta w-full">
                         Usar voz para preencher a mensagem
                     </button>
 
-                    <button type="submit" className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira  focus:ring-quinta hover:ring-quinta w-full">
+                    <button type="submit" className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-white  focus:ring-quinta hover:ring-quinta w-full">
                         Enviar
                     </button>
                 </form>

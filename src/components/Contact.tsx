@@ -1,7 +1,13 @@
 import { Contato } from '@/models/contato';
 import { useEffect, useRef, useState } from 'react';
+import { ReadingContext } from './RightSidebar'; 
+import  FocusableComponent from '../components/FocusableComponent';
+import TextReader from "./TextReader";
+import { useContext } from 'react';
 
 export default function Contact() {
+
+    const { isReadingEnabled } = useContext(ReadingContext);
 
     const [formData, setFormData] = useState<Contato>({
         name: "",
@@ -113,12 +119,22 @@ export default function Contact() {
     };
 
     return (
-        <section className="py-3 min-h-[80vh]" id="contact">
+        <section className="py-3 min-h-[90vh]" id="contact">
             <div className="grid grid-cols-1 px-3 mx-auto lg:px-8 md:grid-cols-2 md:divide-x md:pt-20">
                 <div>
                     <div className="py-6 md:py-0 md:px-6 flex flex-col justify-start">
-                        <h1 className="text-5xl font-bold">Entre em contato</h1>
-                        <p className="pt-5 pb-4 text-2xl ">Preenchendo este formulário simples, nossa equipe entrará em contato com você dentro de duas horas.</p>
+
+                        <TextReader text="Entre em contato" isReadingEnabled={isReadingEnabled}>
+                            <FocusableComponent id="text17" tabIndex={16}>
+                                <h1 className="text-5xl font-bold">Entre em contato</h1>
+                            </FocusableComponent>
+                        </TextReader>
+
+                        <TextReader text="Preenchendo este formulário simples, nossa equipe entrará em contato com você dentro de duas horas." isReadingEnabled={isReadingEnabled}>
+                            <FocusableComponent id="text18" tabIndex={17}>
+                                <p className="pt-5 pb-4 text-2xl ">Preenchendo este formulário simples, nossa equipe entrará em contato com você dentro de duas horas.</p>
+                            </FocusableComponent>
+                        </TextReader>
                     </div>
 
                     <div className="py-6 md:py-0 md:px-6 flex flex-col justify-center">
@@ -156,7 +172,7 @@ export default function Contact() {
                             className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
                         />
                     </label>
-                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(0)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira  focus:ring-quinta hover:ring-quinta w-full">
+                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(0)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-white  focus:ring-quinta hover:ring-quinta w-full">
                         Usar voz para preencher o nome
                     </button>
 
@@ -172,7 +188,7 @@ export default function Contact() {
                             className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
                         />
                     </label>
-                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(1)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira  focus:ring-quinta hover:ring-quinta w-full">
+                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(1)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-white  focus:ring-quinta hover:ring-quinta w-full">
                         Usar voz para preencher o email
                     </button>
 
@@ -187,11 +203,11 @@ export default function Contact() {
                             className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 mt-3"
                         ></textarea>
                     </label>
-                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(2)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira  focus:ring-quinta hover:ring-quinta w-full">
+                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(2)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-white  focus:ring-quinta hover:ring-quinta w-full">
                         Usar voz para preencher a mensagem
                     </button>
 
-                    <button type="submit" className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira  focus:ring-quinta hover:ring-quinta w-full">
+                    <button type="submit" className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-white  focus:ring-quinta hover:ring-quinta w-full">
                         Enviar
                     </button>
                 </form>

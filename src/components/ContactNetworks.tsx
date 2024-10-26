@@ -1,10 +1,22 @@
+import { ReadingContext } from './RightSidebar'; 
+import  FocusableComponent from '../components/FocusableComponent';
+import TextReader from "./TextReader";
+import { useContext } from 'react';
+
 export default function ContactNetworks() {
+
+  const { isReadingEnabled } = useContext(ReadingContext);
+
   return (
-    <section className="bg-terceira" id="social-media">
+    <section className="bg-quinta" id="social-media">
 
       <div className="container p-3 mx-auto space-y-6 md:text-center lg:p-8 lg:space-y-8">
         
-        <h1 className="text-5xl font-bold text-white pt-16 md:pt-0 leading-normal sm:text-center">Contatos & <span> Redes</span></h1>
+        <TextReader text="Contatos & Redes" isReadingEnabled={isReadingEnabled}>
+            <FocusableComponent id="text16" tabIndex={15}>
+              <h1 className="text-5xl font-bold text-white pt-16 md:pt-0 leading-normal sm:text-center">Contatos & <span> Redes</span></h1>
+            </FocusableComponent>
+        </TextReader>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap md:justify-center lg:justify-between pb-20 md:pb-0">
 
           <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram" className="w-12 h-12 mx-10 my-6 fill-current text-white hover:text-quinta">

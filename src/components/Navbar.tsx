@@ -36,10 +36,10 @@ export default function Navbar() {
   const sections = [
 
     {
-      title: 'Sobre nós',
+      title: 'Login',
       icon: faBuilding,
-      description: 'Aprenda mais sobre nós',
-      path: '/AboutCompany',
+      description: 'Faça login agora',
+      path: '/Login',
     },
     {
       title: 'Produtos',
@@ -54,16 +54,16 @@ export default function Navbar() {
       path: '/Contato',
     },
     {
-      title: 'Para Empresas',
+      title: 'Dashboard',
       icon: faComments,
       description: 'Saiba tudo para o seu negócio',
-      path: '/Empresas',
+      path: '/Dashboard',
     },
     {
       title: 'Feedbacks',
       icon: faThumbsUp,
       description: 'O que nossos clientes andam falando',
-      path: '/Feedbacks',
+      path: '/Feedback',
     },
     {
       title: 'Dicas',

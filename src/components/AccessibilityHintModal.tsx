@@ -44,18 +44,28 @@ const AccessibilityHintModal = () => {
 
       Demais:
       A: Alternar entre o menu aberto e fechado.
+      B: Ativar navegação da régua.
       C: Ativar/desativar o chat.
       D: Ativar scroll para baixo.
+      E: Ativar comando de voz para aumentar fonte da página.
       F: Fechar o chat ou qualquer outro modal específico.
       G: Ativar Scroll na tela (rolar para cima ou para baixo).
       H: Abrir menu de suporte.
       I: Ativar scroll para cima.
       J: Desativar completamente o scroll pelo teclado.
-      L: Ativar tema claro.
       K: Ativar tema escuro.
+      L: Ativar tema claro.
       M: Abrir/fechar o menu lateral direita.
+      N: Subir a régua
+      O: para descer
+      P: Fechar modal da régua
+      Q: Desativar leitura dos textos ao mover com tab.
+      R: Desativar personalização da fonte da página.
+      S: Menu de suporte.
+      T: Desativar de vez o audio
       U: Desativar ou ativar fala no navegador.
       V: Ativar navegação por voz.
+      X: Ativar novamente leitura dos textos
       Y: Ativar fala no menu de suporte
       Esc: Fechar o menu ou modal ativo.
       Espaco: Desativar menus.`;
@@ -102,18 +112,28 @@ const AccessibilityHintModal = () => {
         <h4 className="text-md font-bold mb-4 pt-3">Todos comandos precisam ser usados com o Shift + LETRA de ativação.</h4>
         <p className="text-md font-bold mb-4 pt-3">Exemplo um: Shift + K: Ativar tema escuro.</p>
         <p>A: Alternar entre o menu aberto e fechado.</p>
+        <p>B: Ativar navegação da régua.</p>
         <p>C: Ativar/desativar o chat.</p>
         <p>D: Ativar scroll para baixo.</p>
+        <p>E: Ativar comando de voz para aumentar fonte da página.</p>
         <p>F: Fechar o chat ou qualquer outro modal específico.</p>
         <p>G: Ativar Scroll na tela (rolar para cima ou para baixo).</p>
         <p>H: Abrir menu de suporte.</p>
         <p>I: Ativar scroll para cima.</p>
         <p>J: Desativar completamente o scroll pelo teclado.</p>
-        <p>L: Ativar tema claro.</p>
         <p>K: Ativar tema escuro.</p>
+        <p>L: Ativar tema claro.</p>
         <p>M: Abrir/fechar o menu lateral direita.</p>
+        <p>N: Subir a régua</p>
+        <p>O: para descer</p>
+        <p>P: Fechar modal da régua</p>
+        <p>Q: Desativar leitura dos textos ao mover com tab.</p>
+        <p>R: Desativar personalização da fonte da página.</p>
+        <p>S: Menu de suporte.</p>
+        <p>T: Desativar de vez o audio</p>
         <p>U: Desativar ou ativar fala no navegador.</p>
         <p>V: Ativar navegação por voz.</p>
+        <p>X: Ativar novamente leitura dos textos</p>
         <p>Y: Ativar fala no menu de suporte</p>
         <p>Esc: Fechar o menu ou modal ativo.</p>
         <p>Espaco: Desativar menus.</p>

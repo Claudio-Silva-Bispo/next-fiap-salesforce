@@ -16,7 +16,7 @@ export default function Time(){
     
     return(
         
-        <section className="py-6 text-gray-800 min-h-[80vh] bg-gray-100">
+        <section className="py-6 text-gray-800 min-h-[80vh] bg-quinta">
             
             <div className="container flex flex-col items-center justify-start p-4 mx-auto sm:p-10">
                 
