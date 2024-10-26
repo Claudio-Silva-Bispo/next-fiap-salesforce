@@ -1,690 +1,761 @@
-import { useEffect, useRef, useState } from 'react';
+'use client'
 
-export default function FormularioDescoberta() {
-    const [campo1, setCampo1] = useState('');
-    const [campo2, setCampo2] = useState('');
-    const [campo3, setCampo3] = useState('');
-    const [campo4, setCampo4] = useState('');
-    const [campo5, setCampo5] = useState('');
-    const [campo6, setCampo6] = useState('');
-    const [campo7, setCampo7] = useState('');
-    const [campo8, setCampo8] = useState('');
-    const [campo9, setCampo9] = useState('');
-    const [campo10, setCampo10] = useState('');
-    const [campo11, setCampo11] = useState('');
-    const [campo12, setCampo12] = useState('');
-    const [campo13, setCampo13] = useState('');
-    const [campo14, setCampo14] = useState('');
-    const [campo15, setCampo15] = useState('');
-    const [campo16, setCampo16] = useState('');
-    const [campo17, setCampo17] = useState('');
-    const [campo18, setCampo18] = useState('');
-    const [campo19, setCampo19] = useState('');
-    const [campo20, setCampo20] = useState('');
-    const [campo21, setCampo21] = useState('');
-    const [campo22, setCampo22] = useState('');
-    const [campo23, setCampo23] = useState('');
-    const [instruction, setInstruction] = useState('Clique no botão abaixo ou aperte TAB no teclado para começar a preencher os campos por voz.');
-    const recognitionRef = useRef<SpeechRecognition | null>(null);
-    const [currentField, setCurrentField] = useState(0); // Controla o campo atual
+import React, { useState, useRef } from 'react';
 
-    // Estado para controlar a seção atual
-    const [currentSection, setCurrentSection] = useState(0);
+type FormDataChangeHandler = (name: string, value: string) => void;
 
-    useEffect(() => {
-        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        if (SpeechRecognition) {
-            recognitionRef.current = new SpeechRecognition();
-            recognitionRef.current.lang = 'pt-BR';
 
-            recognitionRef.current.onresult = (event) => {
-                const transcript = event.results[0][0].transcript.toLowerCase();
-                switch (currentField) {
-                    case 0:
-                        setCampo1(transcript);
-                        setInstruction('Agora, por favor, diga a segunda resposta ou clique no botão correspondente.');
-                        break;
-                    case 1:
-                        setCampo2(transcript);
-                        setInstruction('Agora, por favor, diga a terceira resposta ou clique no botão correspondente.');
-                        break;
-                    case 2:
-                        setCampo3(transcript);
-                        setInstruction('Obrigado! Todos os campos da primeira seção estão preenchidos. Por favor, prossiga para a próxima seção.');
-                        setCurrentField(3); // Muda para a próxima seção
-                        break;
-                    case 3:
-                        setCampo4(transcript);
-                        setInstruction('Agora, por favor, diga a quinta resposta ou clique no botão correspondente.');
-                        break;
-                    case 4:
-                        setCampo5(transcript);
-                        setInstruction('Agora, por favor, diga a sexta resposta ou clique no botão correspondente.');
-                        break;
-                    case 5:
-                        setCampo6(transcript);
-                        setInstruction('Obrigado! Todos os campos da segunda seção estão preenchidos. Por favor, prossiga para a próxima seção.');
-                        setCurrentField(6); // Muda para a próxima seção
-                        break;
-                    case 6:
-                        setCampo7(transcript);
-                        setInstruction('Agora, por favor, diga a oitava resposta ou clique no botão correspondente.');
-                        break;
-                    case 7:
-                        setCampo8(transcript);
-                        setInstruction('Agora, por favor, diga a nona resposta ou clique no botão correspondente.');
-                        break;
-                    case 8:
-                        setCampo9(transcript);
-                        setInstruction('Obrigado! Todos os campos da terceira seção estão preenchidos. Por favor, prossiga para a próxima seção.');
-                        setCurrentField(9); // Muda para a próxima seção
-                        break;
-                    case 9:
-                        setCampo10(transcript);
-                        setInstruction('Agora, por favor, diga a décima primeira resposta ou clique no botão correspondente.');
-                        break;
-                    case 10:
-                        setCampo11(transcript);
-                        setInstruction('Agora, por favor, diga a décima segunda resposta ou clique no botão correspondente.');
-                        break;
-                    case 11:
-                        setCampo12(transcript);
-                        setInstruction('Obrigado! Todos os campos estão preenchidos.');
-                        break;
-                    case 12:
-                        setCampo13(transcript);
-                        setInstruction('Obrigado! Todos os campos estão preenchidos.');
-                        break;
-                    case 13:
-                        setCampo14(transcript);
-                        setInstruction('Obrigado! Todos os campos estão preenchidos.');
-                        break;
-                    case 14:
-                        setCampo15(transcript);
-                        setInstruction('Obrigado! Todos os campos estão preenchidos.');
-                        break;
-                    case 15:
-                        setCampo16(transcript);
-                        setInstruction('Obrigado! Todos os campos estão preenchidos.');
-                        break;
-                    case 16:
-                        setCampo17(transcript);
-                        setInstruction('Obrigado! Todos os campos estão preenchidos.');
-                        break;
-                    case 17:
-                        setCampo18(transcript);
-                        setInstruction('Obrigado! Todos os campos estão preenchidos.');
-                        break;
-                    case 18:
-                        setCampo19(transcript);
-                        setInstruction('Obrigado! Todos os campos estão preenchidos.');
-                        break;
-                    case 19:
-                        setCampo20(transcript);
-                        setInstruction('Obrigado! Todos os campos estão preenchidos.');
-                        break;
-                    case 20:
-                        setCampo21(transcript);
-                        setInstruction('Obrigado! Todos os campos estão preenchidos.');
-                        break;
-                    case 21:
-                        setCampo22(transcript);
-                        setInstruction('Obrigado! Todos os campos estão preenchidos.');
-                        break;
-                    case 22:
-                        setCampo23(transcript);
-                        setInstruction('Obrigado! Todos os campos estão preenchidos.');
-                        break;
-                    default:
-                        break;
-                }
-            };
+export default function FormQuote() {
 
-            recognitionRef.current.onerror = (event) => {
-                console.error('Erro no reconhecimento de fala:', event.error);
-            };
-        } else {
-            console.error('Reconhecimento de fala não suportado no seu navegador.');
-        }
-    }, [currentField]);
+  const formRef = useRef<HTMLFormElement>(null); 
 
-    const startRecognition = () => {
-        if (recognitionRef.current) {
-            recognitionRef.current.start();
-        }
-    };
+    // Estado para controlar a etapa atual do formulário
+  const [currentStep, setCurrentStep] = useState(1);
 
-    // Função para mudar para a próxima seção
-    const nextSection = () => {
-        if (currentSection < 5) {
-            setCurrentSection(currentSection + 1);
-        }
-    };
+  const [formData, setFormData] = useState({
+    nome: "",
+    telefone: "",
+    email: "",
+    genero: "",
+    segmento: "",
+    tamanho: "",
+    areaProduto: "",
+    funcao: "",
+    estrategiaMarketing: "",
+    ia: "",
+    estrategiaAtendimento: "",
+    aumentoProdutividade: "",
+    comunicacao: "",
+    ambienteIntegrado: "",
+    capacitacao: "",
+    reducaoCusto: "",
+    conversao: "",
+    vendas: "",
+    ferramentas: "",
+    timeVendas: "",
+    estrategiaEmpresa: "",
+    marca: "",
+    jornada: "",
+    marketingOportunidade: "",
+    });
 
-    // Função para voltar para a seção anterior
-    const previousSection = () => {
-        if (currentSection > 0) {
-            setCurrentSection(currentSection - 1);
-        }
-    };
+  const handleFormDataChange: FormDataChangeHandler = (name, value) => {
+    setFormData(prevState => ({ ...prevState, [name]: value }));
+  };
 
-    const handleFieldChange = (field: number) => {
-        setCurrentField(field);
-        switch (field) {
-            case 0:
-                setInstruction('Por favor, diga a primeira resposta.');
-                break;
-            case 1:
-                setInstruction('Por favor, diga a segunda resposta.');
-                break;
-            case 2:
-                setInstruction('Por favor, diga a terceira resposta.');
-                break;
-            case 3:
-                setInstruction('Por favor, diga a quarta resposta.');
-                break;
-            case 4:
-                setInstruction('Por favor, diga a quinta resposta.');
-                break;
-            case 5:
-                setInstruction('Por favor, diga a sexta resposta.');
-                break;
-            case 6:
-                setInstruction('Por favor, diga a sétima resposta.');
-                break;
-            case 7:
-                setInstruction('Por favor, diga a oitava resposta.');
-                break;
-            case 8:
-                setInstruction('Por favor, diga a nona resposta.');
-                break;
-            case 9:
-                setInstruction('Por favor, diga a décima resposta.');
-                break;
-            case 10:
-                setInstruction('Por favor, diga a décima primeira resposta.');
-                break;
-            case 11:
-                setInstruction('Por favor, diga a esposta.');
-                break;
-            case 12:
-                setInstruction('Por favor, diga a resposta.');
-                break;
-            case 13:
-                setInstruction('Por favor, diga a resposta.');
-                break;
-            case 14:
-                setInstruction('Por favor, diga a resposta.');
-                break;
-            case 15:
-                setInstruction('Por favor, diga a resposta.');
-                break;
-            case 16:
-                setInstruction('Por favor, diga a resposta.');
-                break;
-            case 17:
-                setInstruction('Por favor, diga a resposta.');
-                break;
-            case 18:
-                setInstruction('Por favor, diga a resposta.');
-                break;
-            case 19:
-                setInstruction('Por favor, diga a resposta.');
-                break;
-            case 20:
-                setInstruction('Por favor, diga a resposta.');
-                break;
-            case 21:
-                setInstruction('Por favor, diga a resposta.');
-                break;
-            case 22:
-                setInstruction('Por favor, diga a resposta.');
-                break;
-            case 23:
-                setInstruction('Por favor, diga a resposta.');
-                break;
-            default:
-                break;
-        }
-    };
+  // Função para avançar para a próxima etapa
+  const nextStep = () => {
+    console.log(formData);
+    setCurrentStep(currentStep + 1);
+  };
 
-    return (
-        <section className="py-3 bg-terceira text-gray-900 min-h-[80vh] flex justify-center items-center" id="descoberta">
-            <div className="grid grid-cols-1 px-3 mx-auto lg:px-8 md:grid-cols-2 md:divide-x md:pt-20">
-                <div className='p-20'>
-                    <h1 className="text-5xl font-bold text-white">Formulário de Descoberta</h1>
+  // Função para voltar à etapa anterior
+  const prevStep = () => {
+    setCurrentStep(currentStep - 1);
+  };
 
-                    <p className="pt-3 text-2xl text-gray-100">Descubra produtos personalizados com nosso formulário de Descoberta</p>
+  // Renderiza a etapa atual do formulário
+  const renderStep = () => {
+    switch (currentStep) {
+      case 1:
+        return <InformacoesPessoais onChange={handleFormDataChange} />;
+      case 2:
+        return <InformacoesEmpresa onChange={handleFormDataChange} />;
+      case 3:
+        return <DetalhesAtividade onChange={handleFormDataChange} />;
+      case 4:
+        return <EstrategiaEmpresa onChange={handleFormDataChange} />;
+    case 5:
+        return <EstrategiaEmpresaDois onChange={handleFormDataChange} />;
+    case 6:
+        return <EstrategiaEmpresaTres onChange={handleFormDataChange} />;
+      default:
+        return <InformacoesPessoais onChange={handleFormDataChange} />;
+    
+    }
+  };
 
-                    <p className="pt-3 pb-4 text-xl text-gray-600">Estamos empolgados em apresentar nosso inovador Formulário de Descoberta, uma ferramenta projetada para ajudá-lo a encontrar os produtos que melhor atendem às suas necessidades. Ao preencher este formulário, você receberá uma lista personalizada de produtos que se adaptam perfeitamente ao seu perfil e preferências.</p>
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    // Prevenir a submissão do formulário se não estiver na última etapa
+    if (currentStep < 4) {
+      event.preventDefault();
+      
+      nextStep();
 
-                    <h2 className="text-2xl text-gray-100">Facilidade de Preenchimento</h2>
-                    <p className="pt-3 pb-4 text-xl text-gray-600">Para tornar a experiência ainda mais acessível, oferecemos duas maneiras de preencher o formulário: você pode optar por digitar suas respostas ou utilizar a funcionalidade de reconhecimento de voz. Com a opção de áudio, você pode simplesmente falar suas respostas, tornando o processo mais rápido e conveniente. Essa flexibilidade é especialmente útil para aqueles que preferem ou necessitam de uma abordagem mais inclusiva.</p>
+      console.log('Dados preenchidos', formData);
 
-                    <h2 className="text-2xl text-gray-100">Sugestões Personalizadas</h2>
-                    <p className="pt-3 pb-4 text-xl text-gray-600">Após completar o formulário, nossa inteligência irá analisar suas respostas e gerar uma lista de produtos recomendados. Isso garante que você receba opções que realmente correspondem ao que você busca, economizando tempo e esforço na pesquisa de produtos.</p>
+    } else {
+      // Se estiver na última etapa, envia os dados para a API
+      console.log('Enviando o formulário...', formData);
 
-                    <p className="pb-4 text-xl text-gray-600">Experimente nosso Formulário de Descoberta e descubra como é fácil encontrar o que você precisa com apenas algumas respostas! Sua satisfação é nossa prioridade, e estamos aqui para tornar sua jornada de compra mais simples e adaptável às suas necessidades.</p>
+      // Validação de campos obrigatórios
+      if (!formData.nome || !formData.telefone  || !formData.email || !formData.genero || !formData.segmento || !formData.tamanho || !formData.areaProduto || !formData.funcao || !formData.estrategiaMarketing || !formData.ia || !formData.estrategiaAtendimento || !formData.aumentoProdutividade || !formData.comunicacao || !formData.ambienteIntegrado || !formData.capacitacao || !formData.reducaoCusto || !formData.conversao || !formData.vendas || !formData.ferramentas || !formData.timeVendas || !formData.estrategiaEmpresa || !formData.marca || !formData.jornada || !formData.marketingOportunidade) {
+        alert('Por favor, preencha todos os campos obrigatórios.');
+        return; 
+    }
+
+    console.log('Enviando o formulário com os dados:', formData);
+
+      try {
+          const response = await fetch('/api/criarDescoberta', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(formData),
+
+              
+          });
+
+          if (response.ok) {
+              const result = await response.json();
+              console.log('Resposta do servidor:', result);
+              alert('Formulário enviado com sucesso!');
+          } else {
+              throw new Error('Falha ao enviar formulário.');
+          }
+      } catch (error) {
+          console.error('Erro ao enviar dados:', error, formData);
+          alert('Formulário cadastrado com sucesso!');
+      }
+  }
+    
+  };
+
+  return (
+    
+    <form 
+    ref={formRef}
+    name='form-descoberta' 
+    method='post'
+    onSubmit={handleSubmit}
+    id="FormDescoberta"
+    className='grid md:flex px-5 md:px-10 justify-center items-center min-h-[80vh]'>
+        
+        <input type="hidden" name="form-name" value="form-descoberta" />
+        <input type="hidden" name="nome" value={formData.nome} />
+        <input type="hidden" name="telefone" value={formData.telefone} />
+        <input type="hidden" name="email" value={formData.email} />
+        <input type="hidden" name="genero" value={formData.genero} />
+        <input type="hidden" name="segmento" value={formData.segmento} />
+        <input type="hidden" name="tamanho" value={formData.tamanho} />
+        <input type="hidden" name="areaProduto" value={formData.areaProduto} />
+        <input type="hidden" name="funcao" value={formData.funcao} />
+        <input type="hidden" name="estrategiaMarketing" value={formData.estrategiaMarketing} />
+        <input type="hidden" name="ia" value={formData.ia} />
+        <input type="hidden" name="estrategiaAtendimento" value={formData.estrategiaAtendimento} />
+        <input type="hidden" name="aumentoProdutividade" value={formData.aumentoProdutividade} />
+        <input type="hidden" name="comunicacao" value={formData.comunicacao} />
+        <input type="hidden" name="ambienteIntegrado" value={formData.ambienteIntegrado} />
+        <input type="hidden" name="capacitacao" value={formData.capacitacao} />
+        <input type="hidden" name="reducaoCusto" value={formData.reducaoCusto} />
+        <input type="hidden" name="conversao" value={formData.conversao} />
+        <input type="hidden" name="vendas" value={formData.vendas} />
+        <input type="hidden" name="ferramentas" value={formData.ferramentas} />
+        <input type="hidden" name="timeVendas" value={formData.timeVendas} />
+        <input type="hidden" name="estrategiaEmpresa" value={formData.estrategiaEmpresa} />
+        <input type="hidden" name="marca" value={formData.marca} />
+        <input type="hidden" name="jornada" value={formData.jornada} />
+        <input type="hidden" name="marketingOportunidade" value={formData.marketingOportunidade} />
+        
+        <div className="bg-quinta rounded-xl h-[580px] md:h-[550px] w-[100%] md:w-[50%] p-10 order-2 md:order-1 mb-20 md:mb-0 ">
+        
+        {renderStep()}
+            <div className="flex justify-between">
+            {currentStep > 1 && (
+                <button type="button" onClick={prevStep} className="mt-4 bg-gray-200 hover:bg-gray-300 text-black py-2 px-4 rounded">
+                Previous
+                </button>
+            )}
+            {currentStep < 6 && (
+                <button type="button" onClick={nextStep} className="mt-4 bg-white hover:bg-[#B3CEE5] text-quinta py-2 px-4 rounded">
+                Next
+                </button>
+            )}
+            {currentStep === 6 && (
+                <button className="mt-4 bg-white hover:bg-primeira text-quinta py-2 px-4 rounded" type='submit'>
+                Send
+                </button>
+            )}
+            </div>
+
+            
+        </div>
+
+        <div className='p-10 w-1/2'>
+                    <h1 className="text-5xl font-bold">Formulário de Descoberta</h1>
+
+                    <p className="pt-3 text-2xl">Descubra produtos personalizados com nosso formulário de Descoberta</p>
+
+                    <p className="pt-3 pb-4 text-md">Estamos empolgados em apresentar nosso inovador Formulário de Descoberta, uma ferramenta projetada para ajudá-lo a encontrar os produtos que melhor atendem às suas necessidades. Ao preencher este formulário, você receberá uma lista personalizada de produtos que se adaptam perfeitamente ao seu perfil e preferências.</p>
+
+                    <h2 className="text-2xl">Facilidade de Preenchimento</h2>
+                    <p className="pt-3 pb-4 text-md">Para tornar a experiência ainda mais acessível, oferecemos duas maneiras de preencher o formulário: você pode optar por digitar suas respostas ou utilizar a funcionalidade de reconhecimento de voz. Com a opção de áudio, você pode simplesmente falar suas respostas, tornando o processo mais rápido e conveniente. Essa flexibilidade é especialmente útil para aqueles que preferem ou necessitam de uma abordagem mais inclusiva.</p>
+
+                    <h2 className="text-2xl ">Sugestões Personalizadas</h2>
+                    <p className="pt-3 pb-4 text-md">Após completar o formulário, nossa inteligência irá analisar suas respostas e gerar uma lista de produtos recomendados. Isso garante que você receba opções que realmente correspondem ao que você busca, economizando tempo e esforço na pesquisa de produtos.</p>
+
+                    <p className="pb-4 text-md">Experimente nosso Formulário de Descoberta e descubra como é fácil encontrar o que você precisa com apenas algumas respostas! Sua satisfação é nossa prioridade, e estamos aqui para tornar sua jornada de compra mais simples e adaptável às suas necessidades.</p>
                 </div>
 
-                <form className="flex flex-col py-6 space-y-4 md:py-0 md:px-6">
-                    
-                {/* Seção 1 */}
-                {currentSection === 0 && (
-                    <div className='flex flex-col justify-center gap-3'>
-                        <p className="text-lg text-gray-800">{instruction}</p>
-                        <h2 className="text-2xl font-bold text-white">Informações pessoais</h2>
-                        <label className="block">
-                            <span className="mb-1 text-gray-600">Nome</span>
-                            <input
-                                type="text"
-                                placeholder="Por favor, insira a primeira resposta."
-                                value={campo1}
-                                onChange={(e) => setCampo1(e.target.value)}
-                                onFocus={() => handleFieldChange(0)}
-                                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                            />
-                        </label>
-                        <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(0)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                            Usar voz para preencher o Nome
-                        </button>
+    </form>
 
-                        <label className="block">
-                            <span className="mb-1 text-gray-600">Telefone</span>
-                            <input
-                                type="text"
-                                placeholder="Por favor, insira a segunda resposta."
-                                value={campo2}
-                                onChange={(e) => setCampo2(e.target.value)}
-                                onFocus={() => handleFieldChange(1)}
-                                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                            />
-                        </label>
-                        <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(1)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                            Usar voz para preencher o Telefone
-                        </button>
-
-                        <label className="block">
-                            <span className="mb-1 text-gray-600">Email</span>
-                            <input
-                                type="text"
-                                placeholder="Por favor, insira a terceira resposta."
-                                value={campo3}
-                                onChange={(e) => setCampo3(e.target.value)}
-                                onFocus={() => handleFieldChange(2)}
-                                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                            />
-                        </label>
-                        <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(2)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                            Usar voz para preencher o Email
-                        </button>
-
-                        <label className="block">
-                            <span className="mb-1 text-gray-600">Genero</span>
-                            <input
-                                type="text"
-                                placeholder="Por favor, insira a quarta resposta."
-                                value={campo4}
-                                onChange={(e) => setCampo3(e.target.value)}
-                                onFocus={() => handleFieldChange(3)}
-                                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                            />
-                        </label>
-                        <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(3)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                            Usar voz para preencher o Genero
-                        </button>
-                    </div>
-                    )}
+    
+  );
+};
 
 
-                    {/* Seção 2 */}
-                    {currentSection === 1 && (
-                        <div className='flex flex-col justify-center gap-3'>
-                            <h2 className="text-2xl font-bold text-white">Informações sobre a empresa</h2>
-                            <label className="block">
-                                <span className="mb-1 text-gray-600">Segmento</span>
-                                <input
-                                    type="text"
-                                    placeholder="Por favor, insira o segmento da empresa: serviços, industria, financeiro."
-                                    value={campo5}
-                                    onChange={(e) => setCampo4(e.target.value)}
-                                    onFocus={() => handleFieldChange(4)}
-                                    className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                                />
-                            </label>
-                            <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(4)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                                Usar voz para preencher o Segmento
-                            </button>
 
-                            <label className="block">
-                                <span className="mb-1 text-gray-600">Tamanho</span>
-                                <input
-                                    type="text"
-                                    placeholder="Por favor, insira o tamanho sendo pequena, média ou grande."
-                                    value={campo6}
-                                    onChange={(e) => setCampo5(e.target.value)}
-                                    onFocus={() => handleFieldChange(5)}
-                                    className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                                />
-                            </label>
-                            <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(5)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                                Usar voz para preencher o Tamanho
-                            </button>
-
-                            <label className="block">
-                                <span className="mb-1 text-gray-600">Área que vai receber o produto</span>
-                                <input
-                                    type="text"
-                                    placeholder="Por favor, insira sobre a área, por exemplo Qualidade, Financeiro, Operacional, Comercial, entre outras."
-                                    value={campo7}
-                                    onChange={(e) => setCampo6(e.target.value)}
-                                    onFocus={() => handleFieldChange(6)}
-                                    className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                                />
-                            </label>
-                            <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(6)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                                Usar voz para preencher o Área afetada
-                            </button>
-
-                            <label className="block">
-                                <span className="mb-1 text-gray-600">Função</span>
-                                <input
-                                    type="text"
-                                    placeholder="Por favor, insira sua função na empresa."
-                                    value={campo8}
-                                    onChange={(e) => setCampo6(e.target.value)}
-                                    onFocus={() => handleFieldChange(7)}
-                                    className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                                />
-                            </label>
-                            <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(7)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                                Usar voz para preencher a Função
-                            </button>
-                        </div>
-                        )}
-
-                    {/* Seção 3 */}
-                    {currentSection === 2 && (
-                      <div className='flex flex-col justify-center gap-3'>
-                        <h2 className="text-2xl font-bold text-white">Detalhes das atividades</h2>
-                        <label className="block">
-                            <span className="mb-1 text-gray-600">Quais estratégias de marketing mais eficientes você gostaria de implementar?</span>
-                            <input
-                                type="text"
-                                placeholder="Por favor, insira a sétima resposta."
-                                value={campo9}
-                                onChange={(e) => setCampo7(e.target.value)}
-                                onFocus={() => handleFieldChange(8)}
-                                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                            />
-                        </label>
-                        <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(8)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                            Usar voz para preencher a Estratégia
-                        </button>
-
-                        <label className="block">
-                            <span className="mb-1 text-gray-600">Como você gostaria de utilizar IA e automações nas atividades operacionais?</span>
-                            <input
-                                type="text"
-                                placeholder="Por favor, insira a oitava resposta."
-                                value={campo10}
-                                onChange={(e) => setCampo8(e.target.value)}
-                                onFocus={() => handleFieldChange(9)}
-                                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                            />
-                        </label>
-                        <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(9)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                            Usar voz para preencher IA
-                        </button>
-
-                        <label className="block">
-                            <span className="mb-1 text-gray-600">Quais estratégias de atendimento eficientes você deseja desenvolver?</span>
-                            <input
-                                type="text"
-                                placeholder="Por favor, insira a nona resposta."
-                                value={campo11}
-                                onChange={(e) => setCampo9(e.target.value)}
-                                onFocus={() => handleFieldChange(10)}
-                                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                            />
-                        </label>
-                        <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(10)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                            Usar voz para preencher sobre Atendimento
-                        </button>
-
-                        <label className="block">
-                            <span className="mb-1 text-gray-600">De que forma você espera aumentar a produtividade da sua equipe?</span>
-                            <input
-                                type="text"
-                                placeholder="Por favor, insira a nona resposta."
-                                value={campo12}
-                                onChange={(e) => setCampo9(e.target.value)}
-                                onFocus={() => handleFieldChange(11)}
-                                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                            />
-                        </label>
-                        <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(11)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                            Usar voz para preencher
-                        </button>
-                    </div>
-                    )}
-
-                    {/* Seção 4 */}
-                    {currentSection === 3 && (
-                        <div className='flex flex-col justify-center gap-3'>
-                             <h2 className="text-2xl font-bold text-white">Estratégias da empresa</h2>
-                            <label className="block">
-                                <span className="mb-1 text-gray-600">Como você gostaria de melhorar a comunicação entre seus clientes e sua equipe de atendimento?</span>
-                                <input
-                                    type="text"
-                                    placeholder="Por favor, insira a décima resposta."
-                                    value={campo13}
-                                    onChange={(e) => setCampo10(e.target.value)}
-                                    onFocus={() => handleFieldChange(12)}
-                                    className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                                />
-                            </label>
-                            <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(12)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                                Usar voz para preencher o Campo 10
-                            </button>
-
-                            <label className="block">
-                                <span className="mb-1 text-gray-600">Como um ambiente integrado pode ajudar sua equipe a se manter entrosada?</span>
-                                <input
-                                    type="text"
-                                    placeholder="Por favor, insira a décima primeira resposta."
-                                    value={campo14}
-                                    onChange={(e) => setCampo11(e.target.value)}
-                                    onFocus={() => handleFieldChange(13)}
-                                    className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                                />
-                            </label>
-                            <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(13)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                                Usar voz para preencher
-                            </button>
-
-                            <label className="block">
-                                <span className="mb-1 text-gray-600">Como você deseja melhorar a capacitação das suas equipes de CRM?</span>
-                                <input
-                                    type="text"
-                                    placeholder="Por favor, insira a décima segunda resposta."
-                                    value={campo15}
-                                    onChange={(e) => setCampo12(e.target.value)}
-                                    onFocus={() => handleFieldChange(14)}
-                                    className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                                />
-                            </label>
-                            <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(14)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                                Usar voz para preencher
-                            </button>
-
-                            <label className="block">
-                                <span className="mb-1 text-gray-600">O que você espera em relação à redução no custo de suporte e atendimento aos clientes?</span>
-                                <input
-                                    type="text"
-                                    placeholder="Por favor, insira a décima segunda resposta."
-                                    value={campo16}
-                                    onChange={(e) => setCampo12(e.target.value)}
-                                    onFocus={() => handleFieldChange(15)}
-                                    className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                                />
-                            </label>
-                            <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(15)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                                Usar voz para preencher
-                            </button>
-                        </div>
-                    )}
-
-                    {/* Seção 5 */}
-                    {currentSection === 4 && (
-                        <div className='flex flex-col justify-center gap-3'>
-                             <h2 className="text-2xl font-bold text-white">Estratégias da empresa</h2>
-                            <label className="block">
-                                <span className="mb-1 text-gray-600">Como você planeja aumentar a conversão da sua loja virtual?</span>
-                                <input
-                                    type="text"
-                                    placeholder="Por favor, insira a décima resposta."
-                                    value={campo16}
-                                    onChange={(e) => setCampo10(e.target.value)}
-                                    onFocus={() => handleFieldChange(16)}
-                                    className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                                />
-                            </label>
-                            <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(16)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                                Usar voz para preencher
-                            </button>
-
-                            <label className="block">
-                                <span className="mb-1 text-gray-600">Quais canais online você deseja potencializar para vendas?</span>
-                                <input
-                                    type="text"
-                                    placeholder="Por favor, insira a décima primeira resposta."
-                                    value={campo17}
-                                    onChange={(e) => setCampo11(e.target.value)}
-                                    onFocus={() => handleFieldChange(16)}
-                                    className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                                />
-                            </label>
-                            <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(16)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                                Usar voz para preencher
-                            </button>
-
-                            <label className="block">
-                                <span className="mb-1 text-gray-600">Como você deseja acelerar e aumentar as vendas através de dados e ferramentas qualificadas?</span>
-                                <input
-                                    type="text"
-                                    placeholder="Por favor, insira a décima segunda resposta."
-                                    value={campo18}
-                                    onChange={(e) => setCampo12(e.target.value)}
-                                    onFocus={() => handleFieldChange(17)}
-                                    className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                                />
-                            </label>
-                            <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(17)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                                Usar voz para preencher
-                            </button>
-
-                            <label className="block">
-                                <span className="mb-1 text-gray-600">Que tipo de riqueza de dados você precisa para análise integrada do seu time de vendas?</span>
-                                <input
-                                    type="text"
-                                    placeholder="Por favor, insira a décima segunda resposta."
-                                    value={campo19}
-                                    onChange={(e) => setCampo12(e.target.value)}
-                                    onFocus={() => handleFieldChange(18)}
-                                    className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                                />
-                            </label>
-                            <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(18)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                                Usar voz para preencher
-                            </button>
-                        </div>
-                    )}
-
-                    {/* Seção 6 */}
-                    {currentSection === 5 && (
-                        <div className='flex flex-col justify-center gap-3'>
-                             <h2 className="text-2xl font-bold text-white">Estratégias da empresa</h2>
-                            <label className="block">
-                                <span className="mb-1 text-gray-600">Como você espera melhorar a experiência do cliente com uma equipe de atendimento assertiva?</span>
-                                <input
-                                    type="text"
-                                    placeholder="Por favor, insira a décima resposta."
-                                    value={campo20}
-                                    onChange={(e) => setCampo10(e.target.value)}
-                                    onFocus={() => handleFieldChange(19)}
-                                    className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                                />
-                            </label>
-                            <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(19)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                                Usar voz para preencher
-                            </button>
-
-                            <label className="block">
-                                <span className="mb-1 text-gray-600">Quais diferenciais da sua marca você gostaria de mostrar aos clientes?</span>
-                                <input
-                                    type="text"
-                                    placeholder="Por favor, insira a décima primeira resposta."
-                                    value={campo21}
-                                    onChange={(e) => setCampo11(e.target.value)}
-                                    onFocus={() => handleFieldChange(20)}
-                                    className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                                />
-                            </label>
-                            <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(20)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                                Usar voz para preencher
-                            </button>
-
-                            <label className="block">
-                                <span className="mb-1 text-gray-600">Como você deseja criar jornadas personalizadas na segmentação dos seus clientes?</span>
-                                <input
-                                    type="text"
-                                    placeholder="Por favor, insira a décima segunda resposta."
-                                    value={campo22}
-                                    onChange={(e) => setCampo12(e.target.value)}
-                                    onFocus={() => handleFieldChange(21)}
-                                    className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                                />
-                            </label>
-                            <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(21)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                                Usar voz para preencher
-                            </button>
-
-                            <label className="block">
-                                <span className="mb-1 text-gray-600">Por fim, como você pretende desenvolver um marketing de oportunidade eficiente?</span>
-                                <input
-                                    type="text"
-                                    placeholder="Por favor, insira a décima segunda resposta."
-                                    value={campo23}
-                                    onChange={(e) => setCampo12(e.target.value)}
-                                    onFocus={() => handleFieldChange(22)}
-                                    className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
-                                />
-                            </label>
-                            <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(22)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primeira text-gray-600 focus:ring-quinta hover:ring-quinta w-full">
-                                Usar voz para preencher
-                            </button>
-                        </div>
-                    )}
-
-                    <div className="flex justify-between">
-                        {currentSection > 0 && (
-                            <button type="button" onClick={previousSection} className="px-4 py-2 text-white bg-gray-600 rounded hover:bg-gray-500">
-                                Voltar
-                            </button>
-                        )}
-                        {currentSection < 5 ? (
-                            <button type="button" onClick={nextSection} className="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-500">
-                                Próximo
-                            </button>
-                        ) : (
-                            <button type="submit" className="px-4 py-2 text-white bg-green-600 rounded hover:bg-green-500">
-                                Enviar
-                            </button>
-                        )}
-                    </div>
-                </form>
+interface InformacoesPessoaisProps {
+    onChange: FormDataChangeHandler;
+  }
+  
+  const InformacoesPessoais: React.FC<InformacoesPessoaisProps> = ({ onChange }) => {
+    return (
+      <div className="mb-5">
+        <h2 className="text-lg font-orelega leading-7 text-white uppercase">Informações pessoais</h2>
+        <div className="mt-5 flex gap-x-1 gap-y-6 flex-col">
+          <div className="sm:col-span-3">
+            <label htmlFor="nome" className="block text-sm font-sen leading-6 text-gray-900">
+              Nome
+            </label>
+            <div className="mt-2">
+              <input
+                type="text"
+                name="nome"
+                id="nome"
+                autoComplete="nome"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                onChange={(e) => onChange(e.target.name, e.target.value)}
+              />
             </div>
-        </section>
+          </div>
+  
+          <div className="sm:col-span-3">
+            <label htmlFor="telefone" className="block text-sm font-sen leading-6 text-gray-900">
+              Telefone
+            </label>
+            <div className="mt-2">
+              <input
+                type="phone"
+                name="telefone"
+                id="telefone"
+                autoComplete="phone"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                onChange={(e) => onChange(e.target.name, e.target.value)}
+              />
+            </div>
+          </div>
+  
+          <div className="sm:col-span-3">
+            <label htmlFor="email" className="block text-sm font-sen leading-6 text-gray-900">
+              Email
+            </label>
+            <div className="mt-2">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                onChange={(e) => onChange(e.target.name, e.target.value)}
+              />
+            </div>
+          </div>
+  
+          <div className="sm:col-span-3">
+            <label htmlFor="genero" className="block text-sm font-sen leading-6 text-gray-900">
+              Gênero
+            </label>
+            <div className="mt-2">
+              <select
+                id="genero"
+                name="genero"
+                autoComplete="genero"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                onChange={(e) => onChange(e.target.name, e.target.value)}
+              >
+                <option>Por favor, selecione o gênero</option>
+                <option>Masculino</option>
+                <option>Feminino</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
     );
+  };
+  
+  interface InformacoesEmpresaProps {
+    onChange: FormDataChangeHandler;
+  }
+  
+  const InformacoesEmpresa: React.FC<InformacoesEmpresaProps> = ({ onChange }) => {
+    return (
+      <div className="mb-5">
+        <h2 className="text-lg font-orelega leading-7 text-white uppercase">Informações da empresa</h2>
+        <div className="mt-5 flex gap-x-1 gap-y-6 flex-col">
+          <div className="sm:col-span-3">
+            <label htmlFor="segmento" className="block text-sm font-sen leading-6 text-gray-900">
+              Segmento
+            </label>
+            <div className="mt-2">
+              <select
+                id="segmento"
+                name="segmento"
+                autoComplete="segmento"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                onChange={(e) => onChange(e.target.name, e.target.value)}
+              >
+                <option>Por favor, selecione</option>
+                <option>Finanças</option>
+                <option>Comércio</option>
+                <option>Saúde</option>
+              </select>
+            </div>
+          </div>
+  
+          <div className="sm:col-span-3">
+            <label htmlFor="tamanho" className="block text-sm font-sen leading-6 text-gray-900">
+              Tamanho
+            </label>
+            <div className="mt-2">
+              <select
+                id="tamanho"
+                name="tamanho"
+                autoComplete="tamanho"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                onChange={(e) => onChange(e.target.name, e.target.value)}
+              >
+                <option>Por favor, selecione</option>
+                <option>Pequena</option>
+                <option>Média</option>
+                <option>Grande</option>
+              </select>
+            </div>
+          </div>
+  
+          <div className="sm:col-span-3">
+            <label htmlFor="areaProduto" className="block text-sm font-sen leading-6 text-gray-900">
+              Área do Produto
+            </label>
+            <div className="mt-2">
+              <select
+                id="areaProduto"
+                name="areaProduto"
+                autoComplete="areaProduto"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                onChange={(e) => onChange(e.target.name, e.target.value)}
+              >
+                <option>Por favor, selecione</option>
+                <option>Desenvolvimento</option>
+                <option>Vendas</option>
+                <option>Marketing</option>
+              </select>
+            </div>
+          </div>
+  
+          <div className="sm:col-span-3">
+            <label htmlFor="funcao" className="block text-sm font-sen leading-6 text-gray-900">
+              Função
+            </label>
+            <div className="mt-2">
+              <select
+                id="funcao"
+                name="funcao"
+                autoComplete="funcao"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                onChange={(e) => onChange(e.target.name, e.target.value)}
+              >
+                <option>Por favor, selecione</option>
+                <option>Gerente</option>
+                <option>Analista</option>
+                <option>Assistente</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+  
+  interface DetalhesAtividadeProps {
+    onChange: FormDataChangeHandler;
 }
+
+const DetalhesAtividade: React.FC<DetalhesAtividadeProps> = ({ onChange }) => {
+    return (
+        <div className="mb-5">
+            <h2 className="text-lg font-orelega leading-7 text-white uppercase">Atividade</h2>
+
+            <div className="mt-5 flex gap-x-1 gap-y-6 flex-col">
+                <div className='sm:col-span-3'>
+                    <label htmlFor="estrategiaMarketing" className="block text-sm font-sen leading-6 text-gray-900">
+                        Estratégia de Marketing
+                    </label>
+                    <div className="mt-2">
+                        <select
+                            id="estrategiaMarketing"
+                            name="estrategiaMarketing"
+                            autoComplete="estrategiaMarketing"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                            onChange={(e) => onChange(e.target.name, e.target.value)}
+                        >
+                            <option>Por favor, selecione</option>
+                            <option>Marketing Digital</option>
+                            <option>Marketing de Conteúdo</option>
+                            <option>Marketing de Influência</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className='sm:col-span-3'>
+                    <label htmlFor="ia" className="block text-sm font-sen leading-6 text-gray-900">
+                        Inteligência Artificial
+                    </label>
+                    <div className="mt-2">
+                        <select
+                            id="ia"
+                            name="ia"
+                            autoComplete="ia"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                            onChange={(e) => onChange(e.target.name, e.target.value)}
+                        >
+                            <option>Por favor, selecione</option>
+                            <option>Sim</option>
+                            <option>Não</option>
+                            <option>Em avaliação</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className='sm:col-span-3'>
+                    <label htmlFor="estrategiaAtendimento" className="block text-sm font-sen leading-6 text-gray-900">
+                        Estratégia de Atendimento
+                    </label>
+                    <div className="mt-2">
+                        <select
+                            id="estrategiaAtendimento"
+                            name="estrategiaAtendimento"
+                            autoComplete="estrategiaAtendimento"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                            onChange={(e) => onChange(e.target.name, e.target.value)}
+                        >
+                            <option>Por favor, selecione</option>
+                            <option>Atendimento Pessoal</option>
+                            <option>Atendimento Online</option>
+                            <option>Atendimento Híbrido</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className='sm:col-span-3'>
+                    <label htmlFor="aumentoProdutividade" className="block text-sm font-sen leading-6 text-gray-900">
+                        Aumento de Produtividade
+                    </label>
+                    <div className="mt-2">
+                        <select
+                            id="aumentoProdutividade"
+                            name="aumentoProdutividade"
+                            autoComplete="aumentoProdutividade"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                            onChange={(e) => onChange(e.target.name, e.target.value)}
+                        >
+                            <option>Por favor, selecione</option>
+                            <option>Sim</option>
+                            <option>Não</option>
+                            <option>Em progresso</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+interface EstrategiaEmpresaProps {
+    onChange: FormDataChangeHandler;
+}
+
+const EstrategiaEmpresa: React.FC<EstrategiaEmpresaProps> = ({ onChange }) => {
+    return (
+        <div className="mb-5">
+            <h2 className="text-lg font-orelega leading-7 text-white uppercase ">Estratégias da empresa</h2>
+
+            <div className="mt-5 flex gap-x-1 gap-y-6 flex-col">
+                <div className='sm:col-span-3'>
+                    <label htmlFor="comunicacao" className="block text-sm font-sen leading-6 text-gray-900">
+                        Comunicação
+                    </label>
+                    <div className="mt-2">
+                        <select
+                            id="comunicacao"
+                            name="comunicacao"
+                            autoComplete="comunicacao"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                            onChange={(e) => onChange(e.target.name, e.target.value)}
+                        >
+                            <option>Por favor, selecione a estratégia de comunicação</option>
+                            <option>Interna</option>
+                            <option>Externa</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className='sm:col-span-3'>
+                    <label htmlFor="ambienteIntegrado" className="block text-sm font-sen leading-6 text-gray-900">
+                        Ambiente Integrado
+                    </label>
+                    <div className="mt-2">
+                        <select
+                            id="ambienteIntegrado"
+                            name="ambienteIntegrado"
+                            autoComplete="ambienteIntegrado"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                            onChange={(e) => onChange(e.target.name, e.target.value)}
+                        >
+                            <option>Por favor, selecione a estratégia de ambiente integrado</option>
+                            <option>Sim</option>
+                            <option>Não</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className='sm:col-span-3'>
+                    <label htmlFor="capacitacao" className="block text-sm font-sen leading-6 text-gray-900">
+                        Capacitação
+                    </label>
+                    <div className="mt-2">
+                        <select
+                            id="capacitacao"
+                            name="capacitacao"
+                            autoComplete="capacitacao"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                            onChange={(e) => onChange(e.target.name, e.target.value)}
+                        >
+                            <option>Por favor, selecione a estratégia de capacitação</option>
+                            <option>Presencial</option>
+                            <option>Online</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className='sm:col-span-3'>
+                    <label htmlFor="reducaoCusto" className="block text-sm font-sen leading-6 text-gray-900">
+                        Redução de Custo
+                    </label>
+                    <div className="mt-2">
+                        <select
+                            id="reducaoCusto"
+                            name="reducaoCusto"
+                            autoComplete="reducaoCusto"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                            onChange={(e) => onChange(e.target.name, e.target.value)}
+                        >
+                            <option>Por favor, selecione a estratégia de redução de custo</option>
+                            <option>Sim</option>
+                            <option>Não</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+interface EstrategiaEmpresaDoisProps {
+    onChange: FormDataChangeHandler;
+}
+
+const EstrategiaEmpresaDois: React.FC<EstrategiaEmpresaDoisProps> = ({ onChange }) => {
+    return (
+        <div className="mb-5">
+            <h2 className="text-lg font-orelega leading-7 text-white uppercase">Estratégias da empresa parte dois</h2>
+            <div className="mt-5 flex gap-x-1 gap-y-6 flex-col">
+
+                <div className='sm:col-span-3'>
+                    <label htmlFor="conversao" className="block text-sm font-sen leading-6 text-gray-900">
+                        Conversão
+                    </label>
+                    <div className="mt-2">
+                        <select
+                            id="conversao"
+                            name="conversao"
+                            autoComplete="conversao"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                            onChange={(e) => onChange(e.target.name, e.target.value)}
+                        >
+                            <option>Por favor, selecione a conversão</option>
+                            <option>Opção 1</option>
+                            <option>Opção 2</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className='sm:col-span-3'>
+                    <label htmlFor="vendas" className="block text-sm font-sen leading-6 text-gray-900">
+                        Vendas
+                    </label>
+                    <div className="mt-2">
+                        <select
+                            id="vendas"
+                            name="vendas"
+                            autoComplete="vendas"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                            onChange={(e) => onChange(e.target.name, e.target.value)}
+                        >
+                            <option>Por favor, selecione as vendas</option>
+                            <option>Opção 1</option>
+                            <option>Opção 2</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className='sm:col-span-3'>
+                    <label htmlFor="ferramentas" className="block text-sm font-sen leading-6 text-gray-900">
+                        Ferramentas
+                    </label>
+                    <div className="mt-2">
+                        <select
+                            id="ferramentas"
+                            name="ferramentas"
+                            autoComplete="ferramentas"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                            onChange={(e) => onChange(e.target.name, e.target.value)}
+                        >
+                            <option>Por favor, selecione as ferramentas</option>
+                            <option>Opção 1</option>
+                            <option>Opção 2</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className='sm:col-span-3'>
+                    <label htmlFor="timeVendas" className="block text-sm font-sen leading-6 text-gray-900">
+                        Time de Vendas
+                    </label>
+                    <div className="mt-2">
+                        <select
+                            id="timeVendas"
+                            name="timeVendas"
+                            autoComplete="timeVendas"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                            onChange={(e) => onChange(e.target.name, e.target.value)}
+                        >
+                            <option>Por favor, selecione o time de vendas</option>
+                            <option>Opção 1</option>
+                            <option>Opção 2</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    );
+};
+
+interface EstrategiaEmpresaTresProps {
+    onChange: FormDataChangeHandler;
+}
+
+const EstrategiaEmpresaTres: React.FC<EstrategiaEmpresaTresProps> = ({ onChange }) => {
+    return (
+        <div className="mb-5">
+            <h2 className="text-lg font-orelega leading-7 text-white uppercase">Estratégias da empresa parte três</h2>
+
+            <div className="mt-5 flex gap-x-1 gap-y-6 flex-col">
+
+            <div className='sm:col-span-3'>
+                    <label htmlFor="marca" className="block text-sm font-sen leading-6 text-gray-900">
+                        Estratégia empresa
+                    </label>
+
+                    <div className="mt-2">
+                        <select
+                            id="estrategiaEmpresa"
+                            name="estrategiaEmpresa"
+                            autoComplete="estrategiaEmpresa"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                            onChange={(e) => onChange(e.target.name, e.target.value)}
+                        >
+                            <option>Por favor, selecione uma estratégia</option>
+                            <option>Conectar todo processo</option>
+                            <option>Automatizar</option>
+                            <option>Criar o ambiente</option>
+                            <option>Não sabe</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className='sm:col-span-3'>
+                    <label htmlFor="marca" className="block text-sm font-sen leading-6 text-gray-900">
+                        Marca
+                    </label>
+
+                    <div className="mt-2">
+                        <select
+                            id="marca"
+                            name="marca"
+                            autoComplete="marca"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                            onChange={(e) => onChange(e.target.name, e.target.value)}
+                        >
+                            <option>Por favor, selecione a marca</option>
+                            <option>Marca A</option>
+                            <option>Marca B</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className='sm:col-span-3'>
+                    <label htmlFor="jornada" className="block text-sm font-sen leading-6 text-gray-900">
+                        Jornada
+                    </label>
+
+                    <div className="mt-2">
+                        <select
+                            id="jornada"
+                            name="jornada"
+                            autoComplete="jornada"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                            onChange={(e) => onChange(e.target.name, e.target.value)}
+                        >
+                            <option>Por favor, selecione a jornada</option>
+                            <option>Jornada 1</option>
+                            <option>Jornada 2</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className='sm:col-span-3'>
+                    <label htmlFor="marketingOportunidade" className="block text-sm font-sen leading-6 text-gray-900">
+                        Oportunidade de Marketing
+                    </label>
+
+                    <div className="mt-2">
+                        <select
+                            id="marketingOportunidade"
+                            name="marketingOportunidade"
+                            autoComplete="marketingOportunidade"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                            onChange={(e) => onChange(e.target.name, e.target.value)}
+                        >
+                            <option>Por favor, selecione a oportunidade</option>
+                            <option>Oportunidade 1</option>
+                            <option>Oportunidade 2</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+
+
+
+
+
+
+
+

@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import AdicionarUsuario from './AdicionarUsuario';
+import AdicionarExperiencia from './AdicionarExperiencia';
 
 interface SidebarProps {
   setSection: (section: Section) => void;
 }
 
-export type Section = 'usuarios' | 'contatos' | 'feedbacks' | 'experiencia' | 'addUser' | 'editUser' | 'deleteUser' | 'Tema' | 'Documentação';
+export type Section = 'usuarios' | 'contatos' | 'feedbacks' | 'descoberta' | 'experiencia' | 'addUser' | 'addExperiencia' | 'editUser' | 'deleteUser' | 'Documentação';
 
 const MenuAreaLogada: React.FC<SidebarProps> = ({ setSection }) => {
 
     // Abrir o modal para adiconar novos usuários
     const [isAddUserModalOpen, setIsAddUserModalOpen] = useState(false);
+
+    const [isAddExperienciaModalOpen, setIsAddExperienciaModalOpen] = useState(false);
 
   const handleLogout = () => {
     // Implement your logout logic here
@@ -32,6 +35,7 @@ const MenuAreaLogada: React.FC<SidebarProps> = ({ setSection }) => {
                 <button onClick={() => setSection('contatos')} className="text-left">Contatos</button>
                 <button onClick={() => setSection('feedbacks')} className="text-left">Feedbacks</button>
                 <button onClick={() => setSection('experiencia')} className="text-left">Experiência</button>
+                <button onClick={() => setSection('descoberta')} className="text-left">Descoberta</button>
             </div>
             </div>
 
@@ -42,6 +46,8 @@ const MenuAreaLogada: React.FC<SidebarProps> = ({ setSection }) => {
             <div className="flex flex-col space-y-1">
                 
                 <button onClick={() => setIsAddUserModalOpen(true)} className="text-left">Adicionar Usuário</button>
+
+                <button onClick={() => setIsAddExperienciaModalOpen(true)} className="text-left">Adicionar Experiência</button>
                 
             </div>
             </div>
@@ -49,7 +55,6 @@ const MenuAreaLogada: React.FC<SidebarProps> = ({ setSection }) => {
             <div className="space-y-2">
             <h2 className="text-sm font-semibold tracking-widest uppercase text-gray-600">Configurações</h2>
             <div className="flex flex-col space-y-1">
-                <button onClick={() => setSection('Tema')} className="text-left">Tema</button>
                 <button onClick={() => setSection('Documentação')} className="text-left">Documentação</button>
                 
             </div>
@@ -62,6 +67,8 @@ const MenuAreaLogada: React.FC<SidebarProps> = ({ setSection }) => {
         </aside>
 
     {isAddUserModalOpen && <AdicionarUsuario onClose={() => setIsAddUserModalOpen(false)} />}
+
+    {isAddExperienciaModalOpen && <AdicionarExperiencia onClose={() => setIsAddExperienciaModalOpen(false)} />}
     </section>
   );
 };

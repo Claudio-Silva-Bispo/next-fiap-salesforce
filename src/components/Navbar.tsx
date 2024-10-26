@@ -146,11 +146,6 @@ export default function Navbar() {
         }
       }
 
-      if (router.pathname === '/Schedule' || router.pathname === '/Event' || router.pathname === '/Gallery' || router.pathname === '/Team') {
-          setIsHeroVisible(false);
-          return;
-      }
-
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -161,7 +156,7 @@ export default function Navbar() {
   }, [router.pathname]);
 
   return (
-    <header className={`p-4 fixed top-0 w-full z-50 ${isHeroVisible ? 'bg-transparent text-white hover:text-gray-700' : 'bg-white'}`} >
+    <header className={`p-4 fixed top-0 w-full z-50`} >
       <div className="container flex items-center justify-between h-10 mx-auto w-full">
         <div className="flex items-center justify-center flex-grow space-x-3 text-lg">
           <TextReader text="Inicio" isReadingEnabled={isReadingEnabled}>
@@ -184,7 +179,7 @@ export default function Navbar() {
 
           <TextReader text="Acessibilidade" isReadingEnabled={isReadingEnabled}>
             <FocusableComponent id="text3" tabIndex={2}>
-              <Link href="/Documentacao" className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2" onClick={() => handleHashLinkClick('#FormQuote')}>
+              <Link href="/Documentacao" className="px-4 py-2 hover:bg-gray-100 rounded-md flex items-center space-x-2" onClick={() => handleHashLinkClick('/SuporteAcessibilidade')}>
                 <FontAwesomeIcon icon={faHeart} />
                 <span>Acessibilidade</span>
               </Link>

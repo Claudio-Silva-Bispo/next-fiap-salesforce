@@ -3,7 +3,8 @@ import Sidebar, { Section } from '@/components/MenuAreaLogada';
 import TabelaUsuarios from '../components/TabelaUsuarios';
 import TabelaContatos from '../components/TabelaContatos';
 import TabelaFeedbacks from '../components/TabelaFeedbacks';
-import TabelaAgendamentos from '../components/TabelaAgendamentos';
+import TabelaExperiencia from '@/components/TabelaExperiencia';
+import TabelaDescoberta from '../components/TabelaDescoberta';
 
 const Dashboard: React.FC = () => {
   const [section, setSection] = useState<Section>('usuarios');
@@ -42,7 +43,8 @@ const Dashboard: React.FC = () => {
               {section === 'usuarios' && <TabelaUsuarios data={data} onRefresh={fetchData} />}
               {section === 'contatos' && <TabelaContatos data={data} />}
               {section === 'feedbacks' && <TabelaFeedbacks data={data} />}
-              {section === 'experiencia' && <TabelaAgendamentos data={data} />}
+              {section === 'descoberta' && <TabelaDescoberta data={data} />}
+              {section === 'experiencia' && <TabelaExperiencia data={data} onRefresh={fetchData} />}
             </>
           )}
         </div>

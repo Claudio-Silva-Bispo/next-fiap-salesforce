@@ -105,9 +105,9 @@ const ScrollByVoice = () => {
       >
         {isActive ? 'Desativar Navegação por Voz' : 'Ativar Navegação por Voz'}
       </button>
-      <p className="fixed mt-8 top-20 left-10 bg-white text-black px-4 py-2 rounded">
+      {/*<p className="fixed mt-8 top-20 left-10 bg-white text-black px-4 py-2 rounded">
         Pressione 'D' para descer, 'I' para voltar, 'G' para ativar/desativar navegação por voz, 'J' para desativar completamente.
-      </p>
+      </p>*/}
 
       {/* Modal de instruções */}
       {showInstructions && (
