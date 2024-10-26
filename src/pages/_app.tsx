@@ -18,6 +18,7 @@ import { ConfiguracaoProvider } from '@/contexts/ConfiguracaoContext';
 import { ReadingContext } from '../components/RightSidebar';
 import { useEffect, useState } from 'react';
 import VLibras from '@djpfs/react-vlibras';
+import RulerNavigation from '@/components/RulerNavigation';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const router = useRouter();
@@ -66,6 +67,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
               <VoiceThemeToggle />
               <Chat />
               <VLibras forceOnload={true} />
+              <RulerNavigation />
             </div>
           </FontSizeProvider>
       </ReadingContext.Provider>

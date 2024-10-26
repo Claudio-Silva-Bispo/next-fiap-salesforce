@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 
 const ScrollByVoice = () => {
   const [isActive, setIsActive] = useState(false);
+  const [showInstructions, setShowInstructions] = useState(false);
+
   const componentIds = [
     'hero',
     'parceiros',
@@ -41,13 +43,19 @@ const ScrollByVoice = () => {
       // Ativa a navegação por voz
       setIsActive((prev) => !prev);
       if (!isActive) {
+        // mostrar um modal de explicação
+        setShowInstructions(true);
         setCurrentIndex(0); // Reseta o índice ao ativar
       }
     }
-    if (event.key.toLowerCase() === 'j') {
-      // Desativa a navegação por voz completamente
+
+    if (event.shiftKey && (event.key === 'F' || event.key === 'f' )) {
+      setShowInstructions(false);
+    }
+
+    if (event.shiftKey && (event.key === 'J' || event.key === 'j' )) {
       setIsActive(false);
-      setCurrentIndex(0); // Reseta o índice
+      setCurrentIndex(0);
     }
   };
 
@@ -80,6 +88,10 @@ const ScrollByVoice = () => {
     };
   }, [isActive, currentIndex]);
 
+  const closeInstructionsModal = () => {
+    setShowInstructions(false);
+  };
+
   return (
     <div>
       <button 
@@ -96,6 +108,27 @@ const ScrollByVoice = () => {
       <p className="fixed mt-8 top-20 left-10 bg-white text-black px-4 py-2 rounded">
         Pressione 'D' para descer, 'I' para voltar, 'G' para ativar/desativar navegação por voz, 'J' para desativar completamente.
       </p>
+
+      {/* Modal de instruções */}
+      {showInstructions && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-8 rounded-md max-w-lg w-full">
+            <h2 className="text-2xl font-bold mb-4">Instruções de Navegação por Voz</h2>
+            <p>Você ativou a navegação por voz.</p>
+            <p>Comandos disponíveis:</p>
+            <ul className="list-disc list-inside">
+              <li>Diga "próximo" para descer para o próximo componente.</li>
+              <li>Diga "voltar" para subir para o componente anterior.</li>
+            </ul>
+            <button
+              onClick={closeInstructionsModal}
+              className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+            >
+              Fechar
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -38,14 +38,22 @@ export default function Hero() {
                         <button
                             type="button"
                             className="w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded bg-gray-100 text-gray-900 hover:bg-primeira focus:ring hover:ring focus:ring-opacity-75 focus:ring-quinta hover:ring-quinta"
-                        >
-                            <a href="/ContactSection">Contato</a>
+                        >   
+                        <TextReader text="Contato" isReadingEnabled={isReadingEnabled}>
+                            <FocusableComponent id="text8" tabIndex={7}>
+                                <a href="/ContactSection">Contato</a>
+                            </FocusableComponent>
+                        </TextReader>
                         </button>
                         <button
                             type="button"
                             className="w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded bg-quinta text-gray-50 hover:bg-primeira focus:ring hover:ring focus:ring-opacity-75 focus:ring-quinta hover:ring-quinta"
                         >
-                            <a href="/Services">Produtos</a>
+                        <TextReader text="Produtos" isReadingEnabled={isReadingEnabled}>
+                            <FocusableComponent id="text9" tabIndex={8}>
+                                <a href="/Services">Produtos</a>
+                            </FocusableComponent>
+                        </TextReader>
                         </button>
                     </div>
                 </div>

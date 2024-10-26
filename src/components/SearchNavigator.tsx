@@ -1,4 +1,4 @@
-// components/SearchNavigation.tsx
+
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import { FaMicrophone } from 'react-icons/fa';
@@ -30,19 +30,16 @@ const SearchNavigation = () => {
             console.error('Reconhecimento de fala não suportado no seu navegador.');
         }
 
-        // Escutar eventos de teclado
         const handleKeyDown = (event: KeyboardEvent) => {
-            // Verifique se a tecla pressionada é uma tecla específica, como 'F1'
-            if (event.key === 'v') { // Altere a tecla conforme necessário
+            if (event.shiftKey && (event.key === 'V' || event.key === 'v')) { 
                 startRecognition();
             }
         };
 
-        // Adiciona o listener de teclado
         window.addEventListener('keydown', handleKeyDown);
         
         return () => {
-            window.removeEventListener('keydown', handleKeyDown); // Limpa o listener ao desmontar
+            window.removeEventListener('keydown', handleKeyDown); 
         };
     }, []);
 

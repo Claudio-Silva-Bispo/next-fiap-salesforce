@@ -9,7 +9,7 @@ interface TextReaderProps {
 const TextReader: React.FC<TextReaderProps> = ({ text, children, isReadingEnabled }) => {
     useEffect(() => {
         if (!isReadingEnabled) {
-            window.speechSynthesis.cancel(); // Interrompe qualquer fala em andamento se a leitura for desativada
+            window.speechSynthesis.cancel(); 
         }
     }, [isReadingEnabled]);
 
@@ -22,7 +22,7 @@ const TextReader: React.FC<TextReaderProps> = ({ text, children, isReadingEnable
         console.log('Texto para ser lido:', text);
 
         if ('speechSynthesis' in window) {
-            window.speechSynthesis.cancel(); // Interrompe qualquer fala em andamento
+            window.speechSynthesis.cancel(); 
 
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = 'pt-BR';

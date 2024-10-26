@@ -1,8 +1,7 @@
 
 
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
-// Um hook personalizado que gerencia o estado de aumento de fonte
 export const useChangeLanguage = () => {
     const [isLanguageOn, setLanguageOn] = useState(false);
 

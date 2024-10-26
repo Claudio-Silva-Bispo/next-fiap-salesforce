@@ -14,10 +14,12 @@ const VoiceThemeToggle = () => {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'k') {
+      if (event.shiftKey && (event.key === 'K' || event.key === 'k')) {
+        event.preventDefault();
         setIsDarkTheme(true);
         document.documentElement.classList.add('bg-gray-800', 'text-white');
-      } else if (event.key === 'l') {
+      } else if (event.shiftKey && (event.key === 'L' || event.key === 'l')) {
+        event.preventDefault();
         setIsDarkTheme(false);
         document.documentElement.classList.remove('bg-gray-800', 'text-white');
       }
@@ -35,7 +37,7 @@ const VoiceThemeToggle = () => {
       <button onClick={toggleTheme} className="p-2 bg-gray-200 rounded-md hidden">
         {isDarkTheme ? 'Tema Claro' : 'Tema Escuro'}
       </button>
-      <p className="mt-2">Pressione K para tema escuro e L para tema claro.</p>
+      <p className="mt-2 hidden">Pressione K para tema escuro e L para tema claro.</p>
     </div>
   );
 };

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faMinus, faMoon, faPlus, faSun, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faMinus, faMoon, faPlus, faRuler, faSun, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useFontSize } from '@/contexts/FontSizeContext';
+import RulerNavigation from './RulerNavigation';
 
 const AccessibilityMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false); // Estado que controla se o menu está aberto ou fechado
@@ -9,9 +10,10 @@ const AccessibilityMenu: React.FC = () => {
   const [isAudioEnabled, setIsAudioEnabled] = useState(true); // Estado para controlar se o áudio está habilitado
   const menuRef = useRef<HTMLDivElement>(null); // Referência para o menu
   const { fontSize, increaseFontSize, decreaseFontSize } = useFontSize(); // Desestruturar do contexto de tamanho de fonte
+  const [isRulerEnabled, setIsRulerEnabled] = useState(false); 
 
   const toggleMenu = () => {
-    setIsOpen((prev) => !prev); // Alterna o estado do menu
+    setIsOpen((prev) => !prev);
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -60,6 +62,14 @@ const AccessibilityMenu: React.FC = () => {
       });
     }
     setIsAudioEnabled((prev) => !prev); // Alterna o estado do áudio
+  };
+
+  const toggleRuler = () => {
+    setIsRulerEnabled((prev) => {
+      const newValue = !prev; // Alterna o valor da régua
+      console.log("Ruler enabled:", newValue); // Log para verificar
+      return newValue;
+    });
   };
 
   return (
@@ -138,9 +148,18 @@ const AccessibilityMenu: React.FC = () => {
                 {isAudioEnabled ? 'Interromper Áudio' : 'Ativar Áudio'}
               </button>
             </li>
+            <li className="flex items-center">
+              <button onClick={toggleRuler} className="text-gray-700 flex items-center">
+                <FontAwesomeIcon icon={faRuler} className="mr-2"/>
+                {isRulerEnabled ? 'Desativar Régua' : 'Ativar Régua'}
+              </button>
+            </li>
           </ul>
         </div>
       )}
+
+      {/* Renderiza a régua de navegação se estiver ativa */}
+      {isRulerEnabled && <RulerNavigation />}
     </div>
   );
 };

@@ -1,15 +1,35 @@
 import Image from "next/image";
+import { ReadingContext } from './RightSidebar'; 
+import  FocusableComponent from '../components/FocusableComponent';
+import TextReader from "./TextReader";
+import { useContext } from 'react';
 
 export default function About() {
+    const { isReadingEnabled } = useContext(ReadingContext);
+
     return (
         <section className="text-gray-800 min-h-[75vh] p-3 flex justify-center items-center">
             <div className="container grid gap-6 mx-auto lg:grid-cols-2 xl:grid-cols-5">
                 <div className="w-full px-6 py-16 rounded-md sm:px-12 md:px-16 xl:col-span-2 bg-white flex flex-col gap-3 lg:gap-5">
-                    <span className="text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl text-gray-700">Sobre nós</span>
-                    <p className="text-lg xl:max-w-3xl text-gray-600">
-                        A Salesforce é uma empresa de softwares que foca na solução de gerenciamento de relacionamento para aproximar empresas e pessoas. É uma plataforma de CRM integrada que oferece a todos os departamentos uma visão única e compartilhada de cada cliente.
-                    </p>
-                    <span className="font-bold leading-none sm:text-2xl xl:max-w-3xl text-gray-700">O que a Salesforce faz?</span>
+                    <TextReader text="Sobre nós" isReadingEnabled={isReadingEnabled}>
+                        <FocusableComponent id="text10" tabIndex={9}>
+                            <span className="text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl text-gray-700">Sobre nós</span>
+                        </FocusableComponent>
+                    </TextReader>
+
+                    <TextReader text="A Salesforce é uma empresa de softwares que foca na solução de gerenciamento de relacionamento para aproximar empresas e pessoas. É uma plataforma de CRM integrada que oferece a todos os departamentos uma visão única e compartilhada de cada cliente." isReadingEnabled={isReadingEnabled}>
+                        <FocusableComponent id="text11" tabIndex={10}>
+                            <p className="text-lg xl:max-w-3xl text-gray-600">
+                            A Salesforce é uma empresa de softwares que foca na solução de gerenciamento de relacionamento para aproximar empresas e pessoas. É uma plataforma de CRM integrada que oferece a todos os departamentos uma visão única e compartilhada de cada cliente.
+                            </p>
+                        </FocusableComponent>
+                    </TextReader>
+
+                    <TextReader text="O que a Salesforce faz?" isReadingEnabled={isReadingEnabled}>
+                        <FocusableComponent id="text12" tabIndex={11}>
+                            <span className="font-bold leading-none sm:text-2xl xl:max-w-3xl text-gray-700">O que a Salesforce faz?</span>
+                        </FocusableComponent>
+                    </TextReader>
                     <p className="text-lg xl:max-w-3xl text-gray-600">
                         Juntos, conectamos as empresas aos seus clientes. Utilizando o Salesforce Customer 360, nossa plataforma de CRM integrada, sua empresa oferece experiências personalizadas para seus clientes. Nossa solução fornece produtos poderosos e conectados para melhorar seu marketing, vendas, commerce, atendimento ao cliente, TI e muito mais.
                     </p>

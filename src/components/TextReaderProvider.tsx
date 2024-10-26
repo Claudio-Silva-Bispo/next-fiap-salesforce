@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TextReaderContext from '../contexts/TextReaderContext'; // ajuste o caminho conforme necessário
+import TextReaderContext from '../contexts/TextReaderContext'; 
 
 const TextReaderProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isSpeaking, setIsSpeaking] = useState(false);
