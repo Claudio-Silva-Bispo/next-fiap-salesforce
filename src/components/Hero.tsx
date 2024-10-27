@@ -10,7 +10,7 @@ export default function Hero() {
     return (
         <section id="habilitar-menu">
             <div
-                className="relative bg-primeira min-h-[75vh] flex flex-col justify-center"
+                className="relative bg-primeira min-h-[70vh] flex flex-col justify-center"
                 style={{
                     backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/Hero/imagem2.png')",
                     backgroundSize: 'cover',
