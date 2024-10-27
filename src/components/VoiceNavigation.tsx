@@ -53,6 +53,10 @@ const VoiceNavigation = () => {
             router.push('/FormularioDescoberta'); 
         } else if (input.includes('visao')) {
             router.push('/BlinkScroll'); 
+        } else if (input.includes('acessibilidade')) {
+            router.push('/SuporteAcessibilidade'); 
+        } else if (input.includes('suporte')) {
+            router.push('/SuporteAcessibilidade'); 
         }
         
     };

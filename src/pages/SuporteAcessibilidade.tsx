@@ -2,7 +2,7 @@ import React from 'react';
 
 const SuporteAcessibilidade: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[80vh] p-6 bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-[100vh] p-6 bg-gray-100">
       <div className="w-full max-w-3xl bg-white border rounded shadow-lg">
         <h2 className="mb-4 text-4xl font-semibold p-5">Teclas de Atalho</h2>
         <ul className="list-disc list-inside p-5">

@@ -21,7 +21,7 @@ export default function Hero() {
                     <TextReader text="Bem vindo à SalesForce" isReadingEnabled={isReadingEnabled}>
                         <FocusableComponent id="text6" tabIndex={5}>
                             <h1 className="text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl text-gray-50 pt-10">
-                                Bem vindo à SalesForce
+                                Bem vindo à Salesforce
                             </h1>
                         </FocusableComponent>
                     </TextReader>
