@@ -22,15 +22,15 @@ export default function Navbar() {
 
   const menuItems = [
     { item: 'Home', path: '/', icon: faHome },
-    { item: 'Sobre nós', path: '/AboutCompany', icon: faBuilding },
-    { item: 'Contatos', path: '/ContactSection', icon: faPhone },
-    { item: 'Orçamento', path: '#quote', icon: faCalendarAlt },
-    { item: 'Serviços', path: '/Services', icon: faCalendarTimes },
+    { item: 'Login', path: '/Login', icon: faBuilding },
+    { item: 'Contatos', path: '/Contato', icon: faPhone },
+    { item: 'Produtos', path: '/FormularioDescoberta', icon: faCalendarAlt },
+    { item: 'Dashboard', path: '/Dashboard', icon: faCalendarTimes },
     { item: 'Feedback', path: '/Feedback', icon: faComments },
-    { item: 'Testimonials', path: '/Testimonials', icon: faThumbsUp },
-    { item: 'Dicas', path: '/Tips', icon: faShareAlt },
+    { item: 'Dicas', path: '/Dicas', icon: faThumbsUp },
     { item: 'Time', path: '/Team', icon: faUsers },
-    { item: 'Galeria', path: '/Gallery', icon: faGlobe },
+    { item: 'Documentação', path: '/Documentacao', icon: faGlobe },
+    { item: 'Acessibilidade', path: '/SuporteAcessibilidade', icon: faGlobe },
   ];
 
   const sections = [
@@ -156,7 +156,7 @@ export default function Navbar() {
   }, [router.pathname]);
 
   return (
-    <header className={`p-4 fixed top-0 w-full z-50`} >
+    <header className={`p-4 fixed top-0 w-full z-50 hidden md:flex`} >
       <div className="container flex items-center justify-between h-10 mx-auto w-full">
         <div className="flex items-center justify-center flex-grow space-x-3 text-lg">
           <TextReader text="Inicio" isReadingEnabled={isReadingEnabled}>

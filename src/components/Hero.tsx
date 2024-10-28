@@ -28,7 +28,7 @@ export default function Hero() {
 
                     <TextReader text="Cada produto que oferecemos desempenha um papel na construção de conexões que impulsionam o sucesso, e esse sucesso pode ser aproveitado para criar mudanças positivas." isReadingEnabled={isReadingEnabled}>
                         <FocusableComponent id="text7" tabIndex={6}>
-                            <p className="mt-6 mb-8 text-4xl sm:mb-12 xl:max-w-5xl text-gray-50">
+                            <p className="mt-6 mb-8 text-xl md:text-4xl sm:mb-12 xl:max-w-5xl text-gray-50">
                             Cada produto que oferecemos desempenha um papel na construção de conexões que impulsionam o sucesso, e esse sucesso pode ser aproveitado para criar mudanças positivas.
                             </p>
                         </FocusableComponent>
@@ -41,7 +41,7 @@ export default function Hero() {
                         >   
                         <TextReader text="Contato" isReadingEnabled={isReadingEnabled}>
                             <FocusableComponent id="text8" tabIndex={7}>
-                                <a href="/ContactSection">Contato</a>
+                                <a href="/Contato">Contato</a>
                             </FocusableComponent>
                         </TextReader>
                         </button>
@@ -51,7 +51,7 @@ export default function Hero() {
                         >
                         <TextReader text="Produtos" isReadingEnabled={isReadingEnabled}>
                             <FocusableComponent id="text9" tabIndex={8}>
-                                <a href="/Services">Produtos</a>
+                                <a href="/FormularioDescoberta">Produtos</a>
                             </FocusableComponent>
                         </TextReader>
                         </button>

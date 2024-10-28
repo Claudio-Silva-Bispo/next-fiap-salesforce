@@ -14,7 +14,7 @@ export default function ContactNetworks() {
         
         <TextReader text="Contatos & Redes" isReadingEnabled={isReadingEnabled}>
             <FocusableComponent id="text16" tabIndex={15}>
-              <h1 className="text-5xl font-bold text-white pt-16 md:pt-0 leading-normal sm:text-center">Contatos & <span> Redes</span></h1>
+              <h1 className="text-5xl p-10 font-bold text-white pt-16 md:pt-0 leading-normal sm:text-center">Contatos & <span> Redes</span></h1>
             </FocusableComponent>
         </TextReader>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap md:justify-center lg:justify-between pb-20 md:pb-0">

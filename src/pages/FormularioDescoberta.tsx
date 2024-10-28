@@ -130,7 +130,7 @@ export default function FormQuote() {
     method='post'
     onSubmit={handleSubmit}
     id="FormDescoberta"
-    className='grid md:flex px-5 md:px-10 justify-center items-center min-h-[80vh]'>
+    className='grid md:flex px-3 md:px-10 justify-center items-center min-h-[80vh]'>
         
         <input type="hidden" name="form-name" value="form-descoberta" />
         <input type="hidden" name="nome" value={formData.nome} />
@@ -158,7 +158,7 @@ export default function FormQuote() {
         <input type="hidden" name="jornada" value={formData.jornada} />
         <input type="hidden" name="marketingOportunidade" value={formData.marketingOportunidade} />
         
-        <div className="bg-quinta rounded-xl h-[580px] md:h-[550px] w-[100%] md:w-[50%] p-10 order-2 md:order-1 mb-20 md:mb-0 ">
+        <div className="bg-quinta rounded-xl h-[580px] md:h-[550px] w-[100%] md:w-[50%] p-5 md:p-10 order-2 md:order-1 mb-20 md:mb-0 ">
         
         {renderStep()}
             <div className="flex justify-between">
@@ -182,17 +182,17 @@ export default function FormQuote() {
             
         </div>
 
-        <div className='p-10 w-1/2'>
-                    <h1 className="text-5xl font-bold">Formulário de Descoberta</h1>
+        <div className='md:p-10 md:w-1/2'>
+                    <h1 className="text-5xl font-bold pt-32 md:pt-0">Formulário de Descoberta</h1>
 
                     <p className="pt-3 text-2xl">Descubra produtos personalizados com nosso formulário de Descoberta</p>
 
                     <p className="pt-3 pb-4 text-md">Estamos empolgados em apresentar nosso inovador Formulário de Descoberta, uma ferramenta projetada para ajudá-lo a encontrar os produtos que melhor atendem às suas necessidades. Ao preencher este formulário, você receberá uma lista personalizada de produtos que se adaptam perfeitamente ao seu perfil e preferências.</p>
 
-                    <h2 className="text-2xl">Facilidade de Preenchimento</h2>
+                    <h2 className="text-xl md:text-2xl">Facilidade de Preenchimento</h2>
                     <p className="pt-3 pb-4 text-md">Para tornar a experiência ainda mais acessível, oferecemos duas maneiras de preencher o formulário: você pode optar por digitar suas respostas ou utilizar a funcionalidade de reconhecimento de voz. Com a opção de áudio, você pode simplesmente falar suas respostas, tornando o processo mais rápido e conveniente. Essa flexibilidade é especialmente útil para aqueles que preferem ou necessitam de uma abordagem mais inclusiva.</p>
 
-                    <h2 className="text-2xl ">Sugestões Personalizadas</h2>
+                    <h2 className="text-xl md:text-2xl ">Sugestões Personalizadas</h2>
                     <p className="pt-3 pb-4 text-md">Após completar o formulário, nossa inteligência irá analisar suas respostas e gerar uma lista de produtos recomendados. Isso garante que você receba opções que realmente correspondem ao que você busca, economizando tempo e esforço na pesquisa de produtos.</p>
 
                     <p className="pb-4 text-md">Experimente nosso Formulário de Descoberta e descubra como é fácil encontrar o que você precisa com apenas algumas respostas! Sua satisfação é nossa prioridade, e estamos aqui para tornar sua jornada de compra mais simples e adaptável às suas necessidades.</p>

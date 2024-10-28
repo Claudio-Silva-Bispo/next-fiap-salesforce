@@ -41,9 +41,9 @@ export default function ReceberFeedbacks() {
                 </p>
 
                 <div className='grid md:flex gap-5'>
-                    <button type="button" className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-gray-50 focus:ring-terceira hover:ring-terceira"><a href="/Testimonials">Ver mais feedback</a></button>
+                    <button type="button" className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-gray-50 focus:ring-terceira hover:ring-terceira"><a href="/Testimonials">Saiba mais</a></button>
 
-                    <button type="button" className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-gray-50 focus:ring-terceira hover:ring-terceira"><a href="/FormularioDescoberta">Orçamento</a></button>
+                    <button type="button" className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-gray-50 focus:ring-terceira hover:ring-terceira mb-20 md:mb-0"><a href="/FormularioDescoberta">Produto</a></button>
                 </div>
 
             </div>

@@ -78,7 +78,7 @@ const AccessibilityMenu: React.FC = () => {
         onClick={toggleMenu} // Abre/fecha o menu ao clicar
         aria-expanded={isOpen} // Indica se o menu está aberto
         aria-controls="accessibility-menu"
-        className="fixed right-4 top-1/3 transform -translate-y-1/2 p-2 bg-gray-200 rounded-full shadow-lg z-50"
+        className="fixed right-4 top-1/3 transform -translate-y-1/2 p-2 bg-gray-200 rounded-full shadow-lg z-40"
       >
         <FontAwesomeIcon icon={faCog} size="lg" />
       </button>

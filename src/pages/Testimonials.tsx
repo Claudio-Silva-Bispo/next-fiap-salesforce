@@ -1,10 +1,10 @@
 export default function Depoimentos() {
     return (
-        <section className=" bg-segunda">
+        <section className=" bg-quinta">
             <div className="container md:px-6 md:py-12 mx-auto">
-                <div className="grid items-center gap-4 xl:grid-cols-5 mt-20">
+                <div className="grid items-center gap-4 xl:grid-cols-5 md:mt-20">
                     <div className="max-w-2xl mx-auto my-8 space-y-4 text-center xl:col-span-2 xl:text-left p-5 md:p-0">
-                        <h2 className="text-4xl font-bold text-white text-start md:text-center">Sua Opinião é Importante para Nós!</h2>
+                        <h2 className="text-4xl font-bold text-white text-start md:text-center pt-20 md:pt-0">Sua Opinião é Importante para Nós!</h2>
                         <p className="text-white text-2xl text-start md:text-center">Agradecemos a todos os nossos clientes por compartilharem suas experiências. Seus feedbacks nos ajudam a melhorar continuamente nossos serviços e atendimentos na Salesforce.</p>
                     </div>
                     <div className="p-6 xl:col-span-3">

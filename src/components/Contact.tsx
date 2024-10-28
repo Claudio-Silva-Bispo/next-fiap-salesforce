@@ -119,7 +119,7 @@ export default function Contact() {
     };
 
     return (
-        <section className="py-3 min-h-[90vh]" id="contact">
+        <section className="py-3 min-h-[90vh] p-2" id="contact">
             <div className="grid grid-cols-1 px-3 mx-auto lg:px-8 md:grid-cols-2 md:divide-x md:pt-20">
                 <div>
                     <div className="py-6 md:py-0 md:px-6 flex flex-col justify-start">
@@ -132,23 +132,26 @@ export default function Contact() {
 
                         <TextReader text="Preenchendo este formulário simples, nossa equipe entrará em contato com você dentro de duas horas." isReadingEnabled={isReadingEnabled}>
                             <FocusableComponent id="text18" tabIndex={17}>
-                                <p className="pt-5 pb-4 text-2xl ">Preenchendo este formulário simples, nossa equipe entrará em contato com você dentro de duas horas.</p>
+                                <p className="pt-5 pb-4 md:text-2xl ">Preenchendo este formulário simples, nossa equipe entrará em contato com você dentro de duas horas.</p>
                             </FocusableComponent>
                         </TextReader>
                     </div>
 
                     <div className="py-6 md:py-0 md:px-6 flex flex-col justify-center">
-                        <h2 className="text-4xl md:text-3xl font-bold mb-5 pt-5">Dados para contato</h2>
-                        <p className="flex items-center mb-3  text-2xl">Fake address, 9999 City</p>
-                        <p className="flex items-center mb-3  text-2xl">123456789</p>
-                        <p className="flex items-center mb-3  text-2xl">contact@business.com</p>
+                        <h2 className="text-4xl md:text-3xl font-bold mb-5 md:pt-5">Dados para contato</h2>
+                        <p className="flex items-center mb-3 md:text-2xl">Fake address, 9999 City</p>
+                        <p className="flex items-center mb-3 md:text-2xl">123456789</p>
+                        <p className="flex items-center mb-3 md:text-2xl">contact@business.com</p>
                     </div>
 
                     <div className="py-6 md:py-0 md:px-6 flex flex-col justify-center">
-                        <h2 className="text-4xl md:text-3xl font-bold mb-5 pt-5">Sobre o formulário acessível</h2>
-                        <p className="pb-4 text-2xl">
-                        Nosso formulário é fácil de usar e oferece duas maneiras de preenchê-lo: 1. você pode digitar suas respostas ou 2. simplesmente falar, e o sistema vai entender o que você está dizendo. Isso facilita o processo para todos, tornando-o rápido e acessível, seja no computador ou no celular. Basta escolher a forma que for mais conveniente para você!
+                        <h2 className="text-4xl md:text-3xl font-bold mb-5 md:pt-5">Sobre o formulário acessível</h2>
+                        <p className="pb-4 md:text-2xl">
+                        Nosso formulário é fácil de usar e oferece duas maneiras de preenchê-lo: 
                         </p>
+                        <p>1. Você pode digitar suas respostas</p>
+                        <p>2. Simplesmente falar, e o sistema vai entender o que você está dizendo. Isso facilita o processo para todos, tornando-o rápido e acessível, seja no computador ou no celular. </p>
+                        <p className='pt-5'>Basta escolher a forma que for mais conveniente para você!</p>
                     </div>
 
                     
@@ -172,8 +175,8 @@ export default function Contact() {
                             className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
                         />
                     </label>
-                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(0)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-white  focus:ring-quinta hover:ring-quinta w-full">
-                        Usar voz para preencher o nome
+                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(0)} className="self-center px-8 py-3 md:text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-white  focus:ring-quinta hover:ring-quinta w-full">
+                        Usar voz para preencher
                     </button>
 
                     <label className="block">
@@ -188,8 +191,8 @@ export default function Contact() {
                             className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 p-3 mt-3"
                         />
                     </label>
-                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(1)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-white  focus:ring-quinta hover:ring-quinta w-full">
-                        Usar voz para preencher o email
+                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(1)} className="self-center px-8 py-3 md:text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-white  focus:ring-quinta hover:ring-quinta w-full">
+                        Usar voz para preencher
                     </button>
 
                     <label className="block">
@@ -203,8 +206,8 @@ export default function Contact() {
                             className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-600 bg-gray-100 mt-3"
                         ></textarea>
                     </label>
-                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(2)} className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-white  focus:ring-quinta hover:ring-quinta w-full">
-                        Usar voz para preencher a mensagem
+                    <button type="button" onClick={startRecognition} onFocus={() => handleFieldChange(2)} className="self-center px-8 py-3 md:text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-white  focus:ring-quinta hover:ring-quinta w-full">
+                        Usar voz para preencher
                     </button>
 
                     <button type="submit" className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-quinta text-white  focus:ring-quinta hover:ring-quinta w-full">
